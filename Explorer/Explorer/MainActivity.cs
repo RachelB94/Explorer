@@ -11,9 +11,15 @@ namespace Explorer
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            // SetContentView (Resource.Layout.Main);
+            SetContentView(Resource.Layout.Main);
+            Button buttonCamera = FindViewById<Button>(Resource.Id.Camera);
+            buttonCamera.Click += delegate
+            {
+                StartActivity(typeof(Camera));
+            };
+
         }
     }
 }
+
 
