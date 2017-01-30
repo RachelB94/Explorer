@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace Explorer
 {
-    [Activity(Label = "Explorer", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Explorer", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
