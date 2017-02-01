@@ -40,7 +40,8 @@ namespace Explorer
             log.username = username.Text;
             log.password = password.Text;
             HttpClient Client = new HttpClient();
-            string url = "http://explorerlogin20170201121708.azurewebsites.net/api/Values";
+            string url = "http://explorerlogin20170201121708.azurewebsites.net/api/Login/";
+                
             var uri = new Uri(url);
             Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response;
