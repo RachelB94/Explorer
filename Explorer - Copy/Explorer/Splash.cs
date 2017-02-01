@@ -20,7 +20,7 @@ namespace Explorer
         {
             base.OnCreate(savedInstanceState);
             Thread.Sleep(4000);
-            StartActivity(typeof(LoginActivity));
+            StartActivity(typeof(MainActivity));
             
         }
     }

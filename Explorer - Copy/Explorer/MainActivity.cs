@@ -2,7 +2,6 @@
 using Android.Widget;
 using Android.OS;
 
-
 namespace Explorer
 {
     [Activity(Label = "Explorer", Icon = "@drawable/icon")]
