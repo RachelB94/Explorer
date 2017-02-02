@@ -1,6 +1,7 @@
 ﻿using CognitiveServices.Converters;
 using CognitiveServices.ViewModels;
 using Xamarin.Forms;
+using Plugin.Media;
 
 namespace CognitiveServices.Views
 {
@@ -31,6 +32,7 @@ namespace CognitiveServices.Views
             };
             pickPhotoButton.SetBinding(Button.CommandProperty, "PickPhotoCommand");
 
+           
             var imageUrlEntry = new Entry();
             imageUrlEntry.SetBinding(Entry.TextProperty, "ImageUrl");
 

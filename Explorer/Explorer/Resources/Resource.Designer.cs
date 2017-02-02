@@ -2156,55 +2156,58 @@ namespace Explorer
 			public const int Icon = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int mr_dialog_material_background_dark = 2130837650;
+			public const int login = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int mr_dialog_material_background_light = 2130837651;
+			public const int mr_dialog_material_background_dark = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int mr_ic_audiotrack_light = 2130837652;
+			public const int mr_dialog_material_background_light = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int mr_ic_cast_dark = 2130837653;
+			public const int mr_ic_audiotrack_light = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int mr_ic_cast_light = 2130837654;
+			public const int mr_ic_cast_dark = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int mr_ic_close_dark = 2130837655;
+			public const int mr_ic_cast_light = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int mr_ic_close_light = 2130837656;
+			public const int mr_ic_close_dark = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837657;
+			public const int mr_ic_close_light = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int mr_ic_media_route_connecting_mono_light = 2130837658;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int mr_ic_media_route_mono_dark = 2130837659;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int mr_ic_media_route_mono_light = 2130837660;
+			public const int mr_ic_media_route_mono_dark = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int mr_ic_pause_dark = 2130837661;
+			public const int mr_ic_media_route_mono_light = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int mr_ic_pause_light = 2130837662;
+			public const int mr_ic_pause_dark = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int mr_ic_play_dark = 2130837663;
+			public const int mr_ic_pause_light = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int mr_ic_play_light = 2130837664;
-			
-			// aapt resource value: 0x7f0200a2
-			public const int notification_template_icon_bg = 2130837666;
+			public const int mr_ic_play_dark = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int Splash = 2130837665;
+			public const int mr_ic_play_light = 2130837665;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int notification_template_icon_bg = 2130837667;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int Splash = 2130837666;
 			
 			static Drawable()
 			{
@@ -2221,12 +2224,6 @@ namespace Explorer
 			
 			// aapt resource value: 0x7f07007a
 			public const int Camera = 2131165306;
-			
-			// aapt resource value: 0x7f070077
-			public const int Password = 2131165303;
-			
-			// aapt resource value: 0x7f070076
-			public const int Username = 2131165302;
 			
 			// aapt resource value: 0x7f070094
 			public const int action0 = 2131165332;
@@ -2303,8 +2300,8 @@ namespace Explorer
 			// aapt resource value: 0x7f070069
 			public const int btnTake = 2131165289;
 			
-			// aapt resource value: 0x7f0700a3
-			public const int btnlogin2 = 2131165347;
+			// aapt resource value: 0x7f0700a1
+			public const int btnlogin2 = 2131165345;
 			
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
@@ -2546,8 +2543,8 @@ namespace Explorer
 			// aapt resource value: 0x7f070046
 			public const int parentPanel = 2131165254;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int password = 2131165346;
+			// aapt resource value: 0x7f070077
+			public const int password = 2131165303;
 			
 			// aapt resource value: 0x7f070029
 			public const int pin = 2131165225;
@@ -2696,8 +2693,8 @@ namespace Explorer
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int username = 2131165345;
+			// aapt resource value: 0x7f070076
+			public const int username = 2131165302;
 			
 			// aapt resource value: 0x7f07000a
 			public const int view_offset_helper = 2131165194;

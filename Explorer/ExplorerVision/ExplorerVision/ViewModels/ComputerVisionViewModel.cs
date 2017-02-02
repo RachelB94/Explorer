@@ -135,6 +135,8 @@ namespace CognitiveServices.ViewModels
                     _imageStream = mediaFile?.GetStream();
 
                     ImageUrl = mediaFile?.Path;
+
+                   
                 });
             }
         }

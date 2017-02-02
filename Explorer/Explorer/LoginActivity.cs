@@ -1,6 +1,7 @@
 
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using System;
 using System.Net.Http;
@@ -15,14 +16,19 @@ namespace Explorer
         EditText password;
         Button btncreate;
         Button btnsign;
+
+   
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
             base.OnCreate(savedInstanceState);
+
+            RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.Login);
             btnsign = FindViewById<Button>(Resource.Id.btnLogin);
             btncreate = FindViewById<Button>(Resource.Id.btnRegister);
-            username = FindViewById<EditText>(Resource.Id.Username);
-            password = FindViewById<EditText>(Resource.Id.Password);
+            username = FindViewById<EditText>(Resource.Id.username);
+            password = FindViewById<EditText>(Resource.Id.password);
             btncreate.Click += create;
             btnsign.Click += signin;
 
