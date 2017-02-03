@@ -25,10 +25,11 @@ namespace Explorer
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+            RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.Register);
             username = FindViewById<EditText>(Resource.Id.username);
             password = FindViewById<EditText>(Resource.Id.password);
-            create = FindViewById<Button>(Resource.Id.btnlogin2);
+            create = FindViewById<Button>(Resource.Id.btnreg);
             create.Click += create_click;
 
 

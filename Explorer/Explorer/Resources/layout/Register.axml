@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/username" />
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:background="@android:color/white"
+        android:id="@+id/username"
+        android:hint="Username"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"/>
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/password" />
-    <Button
-        android:text="Login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnlogin2" />
-</LinearLayout>
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:background="@android:color/white"
+        android:id="@+id/password"
+        android:hint="Password"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"/>
+      <TableRow
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:gravity="center">
+        <Button
+            android:text="Create"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnreg"
+            android:background="#307FC1"
+            android:textColor="@android:color/white"/>
+      </TableRow>
+  </LinearLayout>
+</RelativeLayout>

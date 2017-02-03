@@ -2301,7 +2301,7 @@ namespace Explorer
 			public const int btnTake = 2131165289;
 			
 			// aapt resource value: 0x7f0700a2
-			public const int btnlogin2 = 2131165346;
+			public const int btnreg = 2131165346;
 			
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
