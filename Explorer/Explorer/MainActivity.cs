@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 
 namespace Explorer
 {
@@ -10,7 +11,7 @@ namespace Explorer
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.Main);
             Button buttonCamera = FindViewById<Button>(Resource.Id.Camera);
             buttonCamera.Click += delegate

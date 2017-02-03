@@ -31,9 +31,7 @@ namespace CognitiveServices.ViewModels
         private readonly ComputerVisionService _computerVisionService = new ComputerVisionService(ComputerVisionApiKey);
         private const string EmotionApiKey = "3ea63bdad6ec41659989eaa0d260a73b";
         private readonly EmotionService _emotionService = new EmotionService(EmotionApiKey);
-        private string _imageUrl = "https://pbs.twimg.com/media/CivvCZ_UgAIB80Z.jpg";
-        //"https://pbs.twimg.com/media/Cm9jk7bWcAAf_2d.jpg";
-        //"https://pbs.twimg.com/media/CiRu_nsWkAA0cU4.jpg";
+        private string _imageUrl = "https://lh3.googleusercontent.com/SsMc3QLMVHJVjsfU7DXgSGfmzWNRNRGjxdifQ6f_C1HjiPitDyPhRh4PMsnSqkA1HBpe=w300";
         private Stream _imageStream;
         private string _errorMessage;
         private bool _isBusy;

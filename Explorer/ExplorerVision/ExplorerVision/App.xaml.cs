@@ -18,10 +18,7 @@ namespace ExplorerVision
             {
                 Children =
                 {
-                    new ComputerVisionPage(),
-                    new OcrPage(),
-                    new EmotionPage(),
-                    new TextAnalyticsPage(),
+                    new ComputerVisionPage()
                 }
             };
         }

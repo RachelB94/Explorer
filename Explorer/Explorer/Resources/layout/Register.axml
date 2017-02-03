@@ -10,38 +10,56 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" >
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:padding="5dp"
-        android:background="@android:color/white"
-        android:id="@+id/username"
-        android:hint="Username"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"/>
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:padding="5dp"
-        android:background="@android:color/white"
-        android:id="@+id/password"
-        android:hint="Password"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"/>
-      <TableRow
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent"
-          android:gravity="center">
-        <Button
-            android:text="Create"
-            android:layout_width="200px"
+        android:layout_margin="10dp">
+        <TextView
+            android:text="Enter in a username"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnreg"
-            android:background="#307FC1"
-            android:textColor="@android:color/white"/>
-      </TableRow>
-  </LinearLayout>
+            android:layout_above="@+id/username"
+            android:id="@+id/textView1"
+            android:textSize="50px"
+            android:layout_marginTop="50dp" />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:background="@android:color/white"
+            android:id="@+id/username"
+            android:hint="Username"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:layout_marginBottom="20dp" />
+        <TextView
+            android:text="Enter in a Password"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="50px"
+            android:id="@+id/textView2" />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:background="@android:color/white"
+            android:id="@+id/password"
+            android:hint="Password"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:layout_marginBottom="20dp" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center">
+            <Button
+                android:text="Create"
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnreg"
+                android:background="#307FC1"
+                android:textColor="@android:color/white" />
+        </TableRow>
+    </LinearLayout>
 </RelativeLayout>

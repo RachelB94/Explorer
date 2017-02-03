@@ -2,6 +2,7 @@
 using CognitiveServices.ViewModels;
 using Xamarin.Forms;
 using Plugin.Media;
+using Android.Views;
 
 namespace CognitiveServices.Views
 {
@@ -10,7 +11,6 @@ namespace CognitiveServices.Views
         public ComputerVisionPage()
         {
 
-            Title = "Analyse";
 
             BindingContext = new ComputerVisionViewModel();
 
@@ -18,38 +18,39 @@ namespace CognitiveServices.Views
             {
                 Text = "Take Photo",
                 TextColor = Color.White,
-                BackgroundColor = Color.Navy,
+                BackgroundColor = Color.Blue,
                 FontSize = 24
             };
             takePhotoButton.SetBinding(Button.CommandProperty, "TakePhotoCommand");
 
-            var pickPhotoButton = new Button
-            {
-                Text = "Pick Photo",
-                TextColor = Color.White,
-                BackgroundColor = Color.Olive,
-                FontSize = 24
-            };
-            pickPhotoButton.SetBinding(Button.CommandProperty, "PickPhotoCommand");
+            //var pickPhotoButton = new Button
+            //{
+            //    Text = "Pick Photo",
+            //    TextColor = Color.White,
+            //    BackgroundColor = Color.Olive,
+            //    FontSize = 24
+            //};
+            //pickPhotoButton.SetBinding(Button.CommandProperty, "PickPhotoCommand");
 
-           
-            var imageUrlEntry = new Entry();
-            imageUrlEntry.SetBinding(Entry.TextProperty, "ImageUrl");
 
-            var image = new Image
-            {
-                HeightRequest = 200
-            };
+            //var imageUrlEntry = new Entry();
+            //imageUrlEntry.SetBinding(Entry.TextProperty, "ImageUrl");
+
+            
+                var image = new Image
+                {
+                    HeightRequest = 200
+                };
+               
             image.SetBinding(Image.SourceProperty, "ImageUrl");
-
-            var analyseImageUrlButton = new Button
-            {
-                Text = "Analyse Image Url",
-                TextColor = Color.White,
-                BackgroundColor = Color.Purple,
-                FontSize = 24
-            };
-            analyseImageUrlButton.SetBinding(Button.CommandProperty, "AnalyseImageUrlCommand");
+            //var analyseImageUrlButton = new Button
+            //{
+            //    Text = "Analyse Image Url",
+            //    TextColor = Color.White,
+            //    BackgroundColor = Color.Purple,
+            //    FontSize = 24
+            //};
+            //analyseImageUrlButton.SetBinding(Button.CommandProperty, "AnalyseImageUrlCommand");
 
             var analyseImageStreamButton = new Button
             {
@@ -60,14 +61,14 @@ namespace CognitiveServices.Views
             };
             analyseImageStreamButton.SetBinding(Button.CommandProperty, "AnalyseImageStreamCommand");
 
-            var extractTextFromImageUrlButton = new Button
-            {
-                Text = "Extract Text from Image Url",
-                TextColor = Color.White,
-                BackgroundColor = Color.Silver,
-                FontSize = 24
-            };
-            extractTextFromImageUrlButton.SetBinding(Button.CommandProperty, "ExtractTextFromImageUrlCommand");
+            //var extractTextFromImageUrlButton = new Button
+            //{
+            //    Text = "Extract Text from Image Url",
+            //    TextColor = Color.White,
+            //    BackgroundColor = Color.Silver,
+            //    FontSize = 24
+            //};
+            //extractTextFromImageUrlButton.SetBinding(Button.CommandProperty, "ExtractTextFromImageUrlCommand");
 
 
             var isBusyActivityIndicator = new ActivityIndicator();
@@ -94,90 +95,90 @@ namespace CognitiveServices.Views
                 null,
                 "CAPTIONS: {0:F0}"));
 
-            var isAdultContentLabel = new Label
-            {
-                TextColor = Color.Teal,
-                FontSize = 20
-            };
-            isAdultContentLabel.SetBinding(Label.TextProperty, new Binding(
-                "ImageResult.Adult.IsAdultContent",
-                BindingMode.Default,
-                null,
-                null,
-                "IsAdultContent: {0:F0}"));
+            //var isAdultContentLabel = new Label
+            //{
+            //    TextColor = Color.Teal,
+            //    FontSize = 20
+            //};
+            //isAdultContentLabel.SetBinding(Label.TextProperty, new Binding(
+            //    "ImageResult.Adult.IsAdultContent",
+            //    BindingMode.Default,
+            //    null,
+            //    null,
+            //    "IsAdultContent: {0:F0}"));
 
-            var isRacyContentLabel = new Label
-            {
-                TextColor = Color.Teal,
-                FontSize = 20
-            };
-            isRacyContentLabel.SetBinding(Label.TextProperty, new Binding(
-                "ImageResult.Adult.IsRacyContent",
-                BindingMode.Default,
-                null,
-                null,
-                "IsRacyContent: {0:F0}"));
+            //var isRacyContentLabel = new Label
+            //{
+            //    TextColor = Color.Teal,
+            //    FontSize = 20
+            //};
+            //isRacyContentLabel.SetBinding(Label.TextProperty, new Binding(
+            //    "ImageResult.Adult.IsRacyContent",
+            //    BindingMode.Default,
+            //    null,
+            //    null,
+            //    "IsRacyContent: {0:F0}"));
 
-            var tagsLabel = new Label
-            {
-                TextColor = Color.Green,
-                FontSize = 20
-            };
-            tagsLabel.SetBinding(Label.TextProperty, new Binding(
-                "ImageResult.Description.Tags",
-                BindingMode.Default,
-                new ListOfStringToOneStringConverter(),
-                null,
-                "TAGS: {0:F0}"));
+            //var tagsLabel = new Label
+            //{
+            //    TextColor = Color.Green,
+            //    FontSize = 20
+            //};
+            //tagsLabel.SetBinding(Label.TextProperty, new Binding(
+            //    "ImageResult.Description.Tags",
+            //    BindingMode.Default,
+            //    new ListOfStringToOneStringConverter(),
+            //    null,
+            //    "TAGS: {0:F0}"));
 
-            var faceDataTemplate = new DataTemplate(() =>
-            {
-                var ageLabel = new Label
-                {
-                    TextColor = Color.Black,
-                    FontSize = 20
-                };
-                ageLabel.SetBinding(Label.TextProperty, new Binding(
-                    "Age",
-                    BindingMode.Default,
-                    null,
-                    null,
-                    "Age: {0:F0}"));
+            //var faceDataTemplate = new DataTemplate(() =>
+            //{
+            //    var ageLabel = new Label
+            //    {
+            //        TextColor = Color.Black,
+            //        FontSize = 20
+            //    };
+            //    ageLabel.SetBinding(Label.TextProperty, new Binding(
+            //        "Age",
+            //        BindingMode.Default,
+            //        null,
+            //        null,
+            //        "Age: {0:F0}"));
 
-                var genderLabel = new Label
-                {
-                    TextColor = Color.Gray,
-                    FontSize = 20
-                };
-                genderLabel.SetBinding(Label.TextProperty, new Binding(
-                    "Gender",
-                    BindingMode.Default,
-                    null,
-                    null,
-                    "Gender: {0:F0}"));
+            //    var genderLabel = new Label
+            //    {
+            //        TextColor = Color.Gray,
+            //        FontSize = 20
+            //    };
+                //genderLabel.SetBinding(Label.TextProperty, new Binding(
+                //    "Gender",
+                //    BindingMode.Default,
+                //    null,
+                //    null,
+                //    "Gender: {0:F0}"));
 
-                var faceStackLayout = new StackLayout
-                {
-                    Padding = 5,
-                    Children =
-                    {
-                        ageLabel,
-                        genderLabel
-                    }
-                };
+                //var faceStackLayout = new StackLayout
+                //{
+                //    Padding = 5,
+                //    Children =
+                //    {
+                //        ageLabel,
+                //        genderLabel
+                //    }
+                //};
 
-                return new ViewCell
-                {
-                    View = faceStackLayout
-                };
-            });
+            //    return new ViewCell
+            //    {
+            //        View = faceStackLayout
+            //    };
+            //});
 
-            var facesListView = new ListView()
-            {
-                HasUnevenRows = true,
-                ItemTemplate = faceDataTemplate
-            };
-            facesListView.SetBinding(ListView.ItemsSourceProperty, "ImageResult.Faces");
+            //var facesListView = new ListView()
+            //{
+            //    HasUnevenRows = true,
+            //    ItemTemplate = faceDataTemplate
+            //};
+            //facesListView.SetBinding(ListView.ItemsSourceProperty, "ImageResult.Faces");
 
             var stackLayout = new StackLayout
             {
@@ -190,20 +191,20 @@ namespace CognitiveServices.Views
                         Children =
                         {
                             takePhotoButton,
-                            pickPhotoButton
+                            //pickPhotoButton
                         }
                     },
-                    imageUrlEntry,
+                    //imageUrlEntry,
                     image,
-                    analyseImageUrlButton,
+                    //analyseImageUrlButton,
                     analyseImageStreamButton,
                     isBusyActivityIndicator,
                     errorMessageLabel,
                     captionsLabel,
-                    isAdultContentLabel,
-                    isRacyContentLabel,
-                    tagsLabel,
-                    facesListView
+                    //isAdultContentLabel,
+                    //isRacyContentLabel,
+                    //tagsLabel,
+                    //facesListView
                 }
             };
 
