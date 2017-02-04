@@ -14,7 +14,7 @@ namespace ExplorerLogin.Controllers
         ExplorersDbsEntities db = new ExplorersDbsEntities();
 
         [HttpPost]
-        [Route("Register")]
+        [Route("XAMARIN_REG")]
         //POST: api/Login
         public HttpResponseMessage Register(string username, string password)
         {
@@ -29,7 +29,7 @@ namespace ExplorerLogin.Controllers
 
         // GET: api/Login
         [HttpGet]
-        [Route("Login")]
+        [Route("XAMARIN_Login")]
         public HttpResponseMessage Login(string username, string password)
         {
             var user = db.Logins.Where(x => x.Username == username && x.Password == password).FirstOrDefault();

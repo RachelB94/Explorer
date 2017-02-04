@@ -88,15 +88,15 @@ namespace CognitiveServices.Views
 
             var captionsLabel = new Label
             {
-                TextColor = Color.Maroon,
+                TextColor = Color.White,
                 FontSize = 20
             };
             captionsLabel.SetBinding(Label.TextProperty, new Binding(
                 "ImageResult.Description.Captions[0].Text",
                 BindingMode.Default,
                 null,
-                null,
-                "CAPTIONS: {0:F0}"));
+                null
+               ));
 
             //var isAdultContentLabel = new Label
             //{
