@@ -11,8 +11,16 @@ namespace CognitiveServices.Views
         public ComputerVisionPage()
         {
 
-
             BindingContext = new ComputerVisionViewModel();
+
+            var image = new Image
+            {
+                HeightRequest = 200,
+                WidthRequest= 320
+                
+            };
+
+            image.SetBinding(Image.SourceProperty, "ImageUrl");
 
             var takePhotoButton = new Button
             {
@@ -37,12 +45,7 @@ namespace CognitiveServices.Views
             //imageUrlEntry.SetBinding(Entry.TextProperty, "ImageUrl");
 
             
-                var image = new Image
-                {
-                    HeightRequest = 200
-                };
                
-            image.SetBinding(Image.SourceProperty, "ImageUrl");
             //var analyseImageUrlButton = new Button
             //{
             //    Text = "Analyse Image Url",
@@ -182,7 +185,7 @@ namespace CognitiveServices.Views
 
             var stackLayout = new StackLayout
             {
-                Padding = new Thickness(10, 0),
+             
                 Children =
                 {
                     new StackLayout
@@ -190,12 +193,14 @@ namespace CognitiveServices.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                         {
-                            takePhotoButton,
+                            image
+                           
                             //pickPhotoButton
                         }
                     },
+
+                     takePhotoButton,
                     //imageUrlEntry,
-                    image,
                     //analyseImageUrlButton,
                     analyseImageStreamButton,
                     isBusyActivityIndicator,
