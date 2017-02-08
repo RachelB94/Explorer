@@ -23,69 +23,76 @@ namespace Explorer
 
         private ProgressDialog progressDialog;
 
-        protected override void OnCreate(Bundle bundle)
+
+        protected override async void OnCreate(Bundle bundle)
         {
+            RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
-            this.SetContentView(Resource.Layout.Login);
+         
+            //this.SetContentView(Resource.Layout.Login);
 
             this.progressDialog = new ProgressDialog(this);
             this.progressDialog.SetMessage("loading...");
 
-            //var loginWithWidget = this.FindViewById<Button>(Resource.Id.loginWithWidget);
-            //loginWithWidget.Click += async (s, a) => {
-            //    // This will show all connections enabled in Auth0, and let the user choose the identity provider
-            //    try
-            //    {
-            //        var user = await this.client.LoginAsync(this);
-            //        this.ShowResult(user);
-            //    }
-            //    catch (AggregateException e)
-            //    {
-            //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
-            //    }
-            //};
 
-            //var loginWithWidgetAndRefreshToken = this.FindViewById<Button>(Resource.Id.loginWithWidgetAndRefreshToken);
 
-            //loginWithWidgetAndRefreshToken.Click += async (s, a) => {
-            //    // This will show all connections enabled in Auth0, and let the user choose the identity provider
-            //    try
-            //    {
-            //        var user = await this.client.LoginAsync(this, withRefreshToken: true);
-            //        this.ShowResult(user);
-            //    }
-            //    catch (AggregateException e)
-            //    {
-            //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
-            //    }
-            //};
 
-            var loginWithConnection = this.FindViewById<Button>(Resource.Id.loginWithConnection);
-            loginWithConnection.Click += async (s, a) => {
-                // This uses a specific connection: google-oauth2
-                try
-                {
-                    var user = await this.client.LoginAsync(this, "google-oauth2"); // current context and connection name
-                    this.ShowResult(user);
-                }
-                catch (AggregateException e)
-                {
-                    this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
-                }
-                catch (Exception e)
-                {
-                    this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
-                }
+            // This will show all connections enabled in Auth0, and let the user choose the identity provider
+            try
+            {
+               
+            var user = await this.client.LoginAsync(this);
+                this.ShowResult(user);
+            }
+            catch (AggregateException e)
+            {
+                this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
+            }
+            catch (Exception e)
+            {
+                this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
+            }
+        }
+        
 
-            };
+
+        //var loginWithWidgetAndRefreshToken = this.FindViewById<Button>(Resource.Id.loginWithWidgetAndRefreshToken);
+
+        //loginWithWidgetAndRefreshToken.Click += async (s, a) => {
+        //    // This will show all connections enabled in Auth0, and let the user choose the identity provider
+        //    try
+        //    {
+        //        var user = await this.client.LoginAsync(this, withRefreshToken: true);
+        //        this.ShowResult(user);
+        //    }
+        //    catch (AggregateException e)
+        //    {
+        //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
+        //    }
+        //};
+
+        //var loginWithConnection = this.FindViewById<Button>(Resource.Id.loginWithConnection);
+        //    loginWithConnection.Click += async (s, a) => {
+        //        // This uses a specific connection: google-oauth2
+        //        try
+        //        {
+        //            var user = await this.client.LoginAsync(this, "google-oauth2"); // current context and connection name
+        //            this.ShowResult(user);
+        //        }
+        //        catch (AggregateException e)
+        //        {
+        //            this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Flatten().Message;
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
+        //        }
+
+        //    };
 
             //var loginWithUserPassword = this.FindViewById<Button>(Resource.Id.loginWithUserPassword);
 
@@ -169,7 +176,7 @@ namespace Explorer
         //    }
         //};
 
-}
+
 
         private void ShowResult(Auth0User user)
         {
@@ -182,11 +189,11 @@ namespace Explorer
             var truncatedId = id.Remove(0, 20);
             truncatedId = truncatedId.Insert(0, "...");
 
-            this.FindViewById<TextView>(Resource.Id.txtResult).Text = string.Format(
-                    "Id: {0}\r\n\r\nProfile: {1}\r\n\r\nRefresh Token:\r\n{2}",
-                    truncatedId,
-                    profile,
-                    refreshToken);
+            //this.FindViewById<TextView>(Resource.Id.txtResult).Text = string.Format(
+            //        "Id: {0}\r\n\r\nProfile: {1}\r\n\r\nRefresh Token:\r\n{2}",
+            //        truncatedId,
+            //        profile,
+            //        refreshToken);
 
 
             StartActivity(typeof(MainActivity));

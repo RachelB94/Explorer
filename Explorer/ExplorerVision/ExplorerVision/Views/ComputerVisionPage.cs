@@ -88,7 +88,7 @@ namespace CognitiveServices.Views
 
             var captionsLabel = new Label
             {
-                TextColor = Color.White,
+                TextColor = Color.Black,
                 FontSize = 20
             };
             captionsLabel.SetBinding(Label.TextProperty, new Binding(

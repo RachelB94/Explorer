@@ -14,13 +14,10 @@ namespace ExplorerVision
         {
             InitializeComponent();
 
-            MainPage = new TabbedPage
-            {
-                Children =
-                {
-                    new ComputerVisionPage()
-                }
-            };
+
+            MainPage = new ComputerVisionPage();
+                
+            
         }
 
         protected override void OnStart()

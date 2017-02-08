@@ -10,11 +10,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using ExplorerVision;
+using Android.Support.V4.App;
 
 namespace Explorer
 {
     [Activity(Label = "Camera")]
-    public class Camera : Xamarin.Forms.Platform.Android.AndroidActivity
+    public class Camera : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -3,5 +3,10 @@
   <style name="Theme.Splash" parent="android:Theme">
     <item name="android:windowBackground">@drawable/splash</item>
     <item name="android:windowNoTitle">true</item>
+  
+    </style>
+ 
+  <style name="CustomTheme" parent="android:Theme.Holo.Light">
+    <item name="android:icon">@android:color/transparent</item>
   </style>
 </resources>
