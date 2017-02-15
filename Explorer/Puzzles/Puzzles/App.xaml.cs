@@ -1,25 +1,20 @@
-﻿using CognitiveServices.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
 
-namespace ExplorerVision
+namespace Puzzles
 {
-    public partial class App : Application
+    public partial class AppPuzzle : Application
     {
-        public App()
+        public AppPuzzle()
         {
             InitializeComponent();
 
-
-            MainPage = new ComputerVisionPage();
-                
-            
+            MainPage = new PuzzlePage();
         }
-
 
         protected override void OnStart()
         {

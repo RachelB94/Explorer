@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 
+
 namespace Explorer
 {
     [Activity(Label = "Explorer", Icon = "@drawable/icon")]
@@ -19,6 +20,12 @@ namespace Explorer
             buttonCamera.Click += delegate
             {
                 StartActivity(typeof(Camera));
+            };
+
+            Button buttonPuzzle = FindViewById<Button>(Resource.Id.Puzzle);
+            buttonPuzzle.Click += delegate
+            {
+                StartActivity(typeof(Puzzle));
             };
 
         }
