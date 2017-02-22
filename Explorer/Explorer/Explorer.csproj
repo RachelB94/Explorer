@@ -201,7 +201,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\login.jpg" />
+    <EmbeddedResource Include="Resources\drawable\login.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\camera.png" />
@@ -220,7 +220,7 @@
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background1.jpeg" />
+    <EmbeddedResource Include="Resources\drawable\background1.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\puzzle.png" />

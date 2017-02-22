@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Puzzles
 {
-    class PuzzlePage : ContentPage
+    public class PuzzlePage : ContentPage
     {
-        // Number of squares horizontally and vertically,
-        //  but if you change it, some code will break.
-        static readonly int NUM = 4;
+
+
+    // Number of squares horizontally and vertically,
+    //  but if you change it, some code will break.
+    static readonly int NUM = 2;
 
         // Array of XuzzleSquare views, and empty row & column.
         PuzzleSquare[,] squares = new PuzzleSquare[NUM, NUM];
@@ -25,6 +28,8 @@ namespace Puzzles
         double squareSize;
         bool isBusy;
         bool isPlaying;
+        double tileSize;
+  
 
         public PuzzlePage()
         {
@@ -35,21 +40,29 @@ namespace Puzzles
                 VerticalOptions = LayoutOptions.Center
             };
 
+
             // Create XuzzleSquare's for all the rows and columns.
-            string text = "{XAMARIN.FORMS}";
-            string winText = "CONGRATULATIONS";
+
+
+            Image[] normalImages = new Image[NUM * NUM];
+
+
             int index = 0;
 
             for (int row = 0; row < NUM; row++)
             {
                 for (int col = 0; col < NUM; col++)
                 {
-                    // But skip the last one!
+                    // But skip the last one! 
                     if (row == NUM - 1 && col == NUM - 1)
                         break;
+                    // Instantiate the image reading it from the local resources. 
+                    normalImages[index] = new Image();
+                    normalImages[index].Source = ImageSource
+                    .FromResource(String.Format("Puzzles.test.png", index + 1));
 
                     // Instantiate XuzzleSquare.
-                    PuzzleSquare square = new PuzzleSquare(text[index], winText[index], index)
+                    PuzzleSquare square = new PuzzleSquare(normalImages[index], index)
                     {
                         Row = row,
                         Col = col
@@ -67,6 +80,8 @@ namespace Puzzles
                     squares[row, col] = square;
                     absoluteLayout.Children.Add(square);
                     index++;
+
+                   
                 }
             }
 
@@ -88,20 +103,26 @@ namespace Puzzles
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
-            // Put everything in a StackLayout.
+          
+        // Put everything in a StackLayout.
             stackLayout = new StackLayout
             {
                 Children = {
-                    new StackLayout {
-                        VerticalOptions = LayoutOptions.FillAndExpand,
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        Children = {
-                            randomizeButton,
-                            timeLabel
-                        }
-                    },
-                    absoluteLayout
-                }
+                                    new StackLayout {
+                                        VerticalOptions = LayoutOptions.FillAndExpand,
+                                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                                        Children = {
+                                            randomizeButton,
+                                            timeLabel,
+                                            
+                                          
+                                        }
+                                    },
+                                    absoluteLayout
+                                }
+                
+
+                
             };
             stackLayout.SizeChanged += OnStackSizeChanged;
 
@@ -131,8 +152,8 @@ namespace Puzzles
             foreach (View view in absoluteLayout.Children)
             {
                 PuzzleSquare square = (PuzzleSquare)view;
-                square.SetLabelFont(0.4 * squareSize, FontAttributes.Bold);
-
+ 
+               
                 AbsoluteLayout.SetLayoutBounds(square,
                     new Rectangle(square.Col * squareSize,
                         square.Row * squareSize,
@@ -143,38 +164,31 @@ namespace Puzzles
 
         async void OnSquareTapped(object parameter)
         {
-            if (isBusy)
-                return;
-
-            isBusy = true;
             PuzzleSquare tappedSquare = (PuzzleSquare)parameter;
             await ShiftIntoEmpty(tappedSquare.Row, tappedSquare.Col);
-            isBusy = false;
 
-            // Check for a "win".
-            if (isPlaying)
+            // Check for a "win". 
+            int index;
+
+            for (index = 0; index < NUM * NUM - 1; index++)
             {
-                int index;
+                int row = index / NUM;
+                int col = index % NUM;
+                PuzzleSquare square = squares[row, col];
+                if (square == null || square.Index != index)
+                    break;
+            }
 
-                for (index = 0; index < NUM * NUM - 1; index++)
-                {
-                    int row = index / NUM;
-                    int col = index % NUM;
-                    PuzzleSquare square = squares[row, col];
-                    if (square == null || square.Index != index)
-                        break;
-                }
-
-                // We have a winner!
-                if (index == NUM * NUM - 1)
-                {
-                    isPlaying = false;
-                    await DoWinAnimation();
-                }
+            // We have a winner! 
+            if (index == NUM * NUM - 1)
+            {
+                isPlaying = false;
+                await DisplayAlert("CONGRATULATION", "YOU WON", "OK");
             }
         }
+    
 
-        async Task ShiftIntoEmpty(int tappedRow, int tappedCol, uint length = 100)
+    async Task ShiftIntoEmpty(int tappedRow, int tappedCol, uint length = 100)
         {
             // Shift columns.
             if (tappedRow == emptyRow && tappedCol != emptyCol)
@@ -246,10 +260,11 @@ namespace Puzzles
             // Prepare for playing.
             DateTime startTime = DateTime.Now;
 
-            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
                 // Round duration and get rid of milliseconds.
                 TimeSpan timeSpan = (DateTime.Now - startTime) +
-                                                    TimeSpan.FromSeconds(0.5);
+                                            TimeSpan.FromSeconds(0.5);
                 timeSpan = new TimeSpan(timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
 
                 // Display the duration.
@@ -282,6 +297,14 @@ namespace Puzzles
         }
     }
 }
-    
-    
+
+
+
+
+
+
+
+
+
+
 

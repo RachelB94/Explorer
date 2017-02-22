@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,24 +8,97 @@ using Xamarin.Forms;
 
 namespace Puzzles
 {
-     class PuzzleSquare : ContentView
+    class PuzzleSquare : ContentView
     {
-        Label label;
-        string normText, winText;
+       
 
-        public PuzzleSquare(char normChar, char winChar, int index)
+       
+        //public PuzzleSquare(int row, int col, ImageSource imageSource)
+        //{
+        //    Row = row;
+        //    Col = col;
+
+        //    Padding = new Thickness(1);
+        //    Content = new Image
+        //    {
+        //        Source = imageSource
+        //    };
+        //}
+
+        //public int Row { set; get; }
+
+        //public int Col { set; get; }
+
+        //private Image image;
+
+        //public int Index
+        //{
+        //    get;
+        //    set;
+        //}
+
+
+        //public Image NormalImage
+        //{
+        //    get;
+        //    set;
+        //}
+        //public int Row { get; internal set; }
+        //public int Col { get; internal set; }
+
+        //public PuzzleSquare(Image normal, int index)
+        //{
+        //    Index = index;
+        //    NormalImage = normal;
+
+
+        //   Image ShownImage = new Image
+        //    {
+        //        Source = NormalImage.Source
+        //    };
+
+        //    this.Content = new Frame
+        //    {
+        //        OutlineColor = Color.Accent,
+        //        Content = new StackLayout
+        //        {
+        //            Children = {
+        //        ShownImage
+        //    }
+        //        }
+        //    };
+
+        //    this.BackgroundColor = Color.Transparent;
+        //}
+
+
+
+        Label label = new Label();
+        Image text { get; set; }
+
+
+       
+
+        public PuzzleSquare(Image imageSource, int index)
         {
             this.Index = index;
-            this.normText = normChar.ToString();
-            this.winText = winChar.ToString();
+            text = imageSource;
 
+            Image shown = new Image
+            {
+                Source = text.Source
+            };
+
+          
             // A Frame surrounding two Labels.
             label = new Label
             {
-                Text = this.normText,
+                
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
+
+            
 
             Label tinyLabel = new Label
             {
@@ -33,24 +107,29 @@ namespace Puzzles
                 HorizontalOptions = LayoutOptions.End
             };
 
+        
+
             this.Padding = new Thickness(3);
             this.Content = new Frame
             {
-                OutlineColor = Color.Accent,
+                OutlineColor = Xamarin.Forms.Color.Accent,
                 Padding = new Thickness(5, 10, 5, 0),
                 Content = new StackLayout
                 {
                     Spacing = 0,
                     Children = {
-                        label,
-                        tinyLabel,
-                    }
+                                shown,
+                                tinyLabel,
+                                
+                            }
                 }
             };
 
             // Don't let touch pass us by.
-            this.BackgroundColor = Color.Transparent;
+            this.BackgroundColor = Xamarin.Forms.Color.Transparent;
         }
+
+
 
         // Retain current Row and Col position.
         public int Index { private set; get; }
@@ -63,7 +142,6 @@ namespace Puzzles
         {
             uint length = 150;
             await Task.WhenAll(this.ScaleTo(3, length), this.RotateTo(180, length));
-            label.Text = isReverse ? normText : winText;
             await Task.WhenAll(this.ScaleTo(1, length), this.RotateTo(360, length));
             this.Rotation = 0;
         }
@@ -74,5 +152,8 @@ namespace Puzzles
             label.FontAttributes = attributes;
         }
     }
+
 }
+
+
 
