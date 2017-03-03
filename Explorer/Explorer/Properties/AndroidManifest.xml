@@ -6,6 +6,8 @@
   <application android:label="Explorer"
                
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+   
     
 
   </application>

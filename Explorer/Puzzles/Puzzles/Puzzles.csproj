@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BitmapImage.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -58,11 +59,53 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DialectSoftware.Semantics.WordReader">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration\packages\DialectSoftware.Sematics.WordReader.1.0.1\lib\DialectSoftware.Semantics.WordReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cocos2D-XNA.Windows.2.0.3.2\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Java.Interop">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\Java.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.CodeAnalysis">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\Microsoft.Build.Tasks.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v7.0\Mono.Android.dll</HintPath>
     </Reference>
+    <Reference Include="Pinta.ImageManipulation.System.Drawing, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pinta.ImageManipulation.System.Drawing.1.0.1\lib\Pinta.ImageManipulation.System.Drawing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shaman.System.Drawing, Version=1.0.1.1, Culture=neutral, PublicKeyToken=18bc04d2eb1e1518, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Shaman.System.Drawing.1.0.1.1\lib\netstandard1.0\Shaman.System.Drawing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms">
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="VBCSCompiler">
+      <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\Collaboration2\Collaboration\Collaboration\packages\Microsoft.Net.Compilers.1.0.0\tools\VBCSCompiler.exe</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
@@ -74,6 +117,10 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cocos2D-XNA.Windows.2.0.3.2\lib\zlib.net.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

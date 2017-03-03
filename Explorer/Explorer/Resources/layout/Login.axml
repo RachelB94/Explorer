@@ -3,21 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="1">
-  <TableRow>
-    <TextView
-        android:text="Login"
-        android:layout_span="2" />
-  </TableRow>
-  <TableRow>
-    <Button
-        android:id="@+id/loginWithWidget"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_span="2"
-        android:text="Login with Widget"
-        android:gravity="center" />
-  </TableRow>
- <!-- <TableRow>
+    <TableRow>
+        <TextView
+            android:text="Login"
+            android:layout_span="2" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/loginWithWidget"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_span="2"
+            android:text="Login with Widget"
+            android:gravity="center" />
+    </TableRow>
+<!-- <TableRow>
     <Button
         android:id="@+id/loginWithWidgetAndRefreshToken"
         android:layout_width="match_parent"
@@ -26,19 +26,19 @@
         android:text="Login with Widget &amp; refresh_token"
         android:gravity="center" />
   </TableRow>-->
-  <TableRow>
-    <Button
-        android:id="@+id/loginWithConnection"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_span="2"
-        android:text="Login with Google"
-        android:gravity="center" />
-  </TableRow>
-  <View
-      android:layout_height="2dip"
-      android:background="#FF909090" />
- <!-- <TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/loginWithConnection"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_span="2"
+            android:text="Login with Google"
+            android:gravity="center" />
+    </TableRow>
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+<!-- <TableRow>
     <TextView
         android:text="Login with user/password"
         android:layout_span="2" />
@@ -70,12 +70,12 @@
   <View
       android:layout_height="2dip"
       android:background="#FF909090" />!-->
-  <TableRow>
-    <TextView
-        android:text="Result"
-        android:layout_span="2" />
-  </TableRow>
-  <!-- <TableRow>
+    <TableRow>
+        <TextView
+            android:text="Result"
+            android:layout_span="2" />
+    </TableRow>
+<!-- <TableRow>
     <Button
         android:id="@+id/refreshWithIdToken"
         android:layout_width="match_parent"
@@ -98,15 +98,15 @@
         android:text="Result"
         android:layout_span="2" />
   </TableRow>-->
-  <TableRow>
-    <ScrollView
-        android:layout_span="2"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-      <TextView
-          android:id="@+id/txtResult"
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent" />
-    </ScrollView>
-  </TableRow>
+    <TableRow>
+        <ScrollView
+            android:layout_span="2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/txtResult"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+        </ScrollView>
+    </TableRow>
 </TableLayout>

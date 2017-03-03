@@ -1,92 +1,103 @@
 ﻿using Android.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Puzzles
 {
+    
+
     class PuzzleSquare : ContentView
     {
-       
 
-       
+
+
         //public PuzzleSquare(int row, int col, ImageSource imageSource)
         //{
         //    Row = row;
         //    Col = col;
 
-        //    Padding = new Thickness(1);
-        //    Content = new Image
-        //    {
-        //        Source = imageSource
-        //    };
-        //}
+            //    Padding = new Thickness(1);
+            //    Content = new Image
+            //    {
+            //        Source = imageSource
+            //    };
+            //}
 
-        //public int Row { set; get; }
+            //public int Row { set; get; }
 
-        //public int Col { set; get; }
+            //public int Col { set; get; }
 
-        //private Image image;
+            //private Image image;
 
-        //public int Index
-        //{
-        //    get;
-        //    set;
-        //}
-
-
-        //public Image NormalImage
-        //{
-        //    get;
-        //    set;
-        //}
-        //public int Row { get; internal set; }
-        //public int Col { get; internal set; }
-
-        //public PuzzleSquare(Image normal, int index)
-        //{
-        //    Index = index;
-        //    NormalImage = normal;
+            //public int Index
+            //{
+            //    get;
+            //    set;
+            //}
 
 
-        //   Image ShownImage = new Image
-        //    {
-        //        Source = NormalImage.Source
-        //    };
+            //public Image NormalImage
+            //{
+            //    get;
+            //    set;
+            //}
+            //public int Row { get; internal set; }
+            //public int Col { get; internal set; }
 
-        //    this.Content = new Frame
-        //    {
-        //        OutlineColor = Color.Accent,
-        //        Content = new StackLayout
-        //        {
-        //            Children = {
-        //        ShownImage
-        //    }
-        //        }
-        //    };
-
-        //    this.BackgroundColor = Color.Transparent;
-        //}
+            //public PuzzleSquare(Image normal, int index)
+            //{
+            //    Index = index;
+            //    NormalImage = normal;
 
 
+            //   Image ShownImage = new Image
+            //    {
+            //        Source = NormalImage.Source
+            //    };
+
+            //    this.Content = new Frame
+            //    {
+            //        OutlineColor = Color.Accent,
+            //        Content = new StackLayout
+            //        {
+            //            Children = {
+            //        ShownImage
+            //    }
+            //        }
+            //    };
+
+            //    this.BackgroundColor = Color.Transparent;
+            //}
+
+          
 
         Label label = new Label();
         Image text { get; set; }
 
+      
 
-       
+        
 
         public PuzzleSquare(Image imageSource, int index)
         {
             this.Index = index;
             text = imageSource;
 
+
+
+           
+
             Image shown = new Image
             {
-                Source = text.Source
+                Source = text.Source,
+              
+               
+
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+
+
             };
 
           
@@ -138,6 +149,10 @@ namespace Puzzles
 
         public int Col { set; get; }
 
+       
+
+       
+
         public async Task AnimateWinAsync(bool isReverse)
         {
             uint length = 150;
@@ -151,7 +166,15 @@ namespace Puzzles
             label.FontSize = fontSize;
             label.FontAttributes = attributes;
         }
+
+
+   
     }
+
+   
+
+
+
 
 }
 

@@ -17,11 +17,13 @@ namespace Explorer
     public class LoginActivity : Activity
     {
 
+       
         private Auth0.SDK.Auth0Client client = new Auth0.SDK.Auth0Client(
               "rachel-byrne.eu.auth0.com",
   "CxR6YNWHl7gzKCsVEcFBrbqHxI5khOux");
 
         private ProgressDialog progressDialog;
+
 
 
         protected override async void OnCreate(Bundle bundle)
@@ -34,14 +36,13 @@ namespace Explorer
             this.progressDialog = new ProgressDialog(this);
             this.progressDialog.SetMessage("loading...");
 
-
-
+            
 
             // This will show all connections enabled in Auth0, and let the user choose the identity provider
             try
             {
-               
-            var user = await this.client.LoginAsync(this);
+              
+                var user = await this.client.LoginAsync(this);
                 this.ShowResult(user);
             }
             catch (AggregateException e)

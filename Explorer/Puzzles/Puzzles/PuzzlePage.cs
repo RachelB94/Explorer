@@ -1,10 +1,17 @@
-﻿using System;
+﻿using Android.Graphics;
+using Android.Graphics.Drawables;
+using Android.Util;
+using Android.Widget;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
+
 
 namespace Puzzles
 {
@@ -12,29 +19,40 @@ namespace Puzzles
     {
 
 
-    // Number of squares horizontally and vertically,
-    //  but if you change it, some code will break.
-    static readonly int NUM = 2;
+       
 
+
+        // Number of squares horizontally and vertically,
+        //  but if you change it, some code will break.
+        static readonly int NUM = 2;
+
+
+
+       
         // Array of XuzzleSquare views, and empty row & column.
         PuzzleSquare[,] squares = new PuzzleSquare[NUM, NUM];
+        Bitmap[,] bmp;
+
+
+
+
         int emptyRow = NUM - 1;
         int emptyCol = NUM - 1;
 
         StackLayout stackLayout;
-        AbsoluteLayout absoluteLayout;
-        Button randomizeButton;
+        Xamarin.Forms.AbsoluteLayout absoluteLayout;
+        Xamarin.Forms.Button randomizeButton;
         Label timeLabel;
         double squareSize;
         bool isBusy;
         bool isPlaying;
         double tileSize;
-  
+        private int images;
 
         public PuzzlePage()
         {
             // AbsoluteLayout to host the squares.
-            absoluteLayout = new AbsoluteLayout()
+            absoluteLayout = new Xamarin.Forms.AbsoluteLayout()
             {
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
@@ -42,12 +60,14 @@ namespace Puzzles
 
 
             // Create XuzzleSquare's for all the rows and columns.
-
+           
 
             Image[] normalImages = new Image[NUM * NUM];
 
 
+
             int index = 0;
+
 
             for (int row = 0; row < NUM; row++)
             {
@@ -56,10 +76,36 @@ namespace Puzzles
                     // But skip the last one! 
                     if (row == NUM - 1 && col == NUM - 1)
                         break;
+
+                  
+
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
                     normalImages[index].Source = ImageSource
                     .FromResource(String.Format("Puzzles.test.png", index + 1));
+
+                    //ImageView imageview = (ImageView)("Puzzles.test.png");
+                    
+                    //Bitmap drawingCache = imageview.GetDrawingCache(true);
+                    //Canvas canvas = new Canvas();
+                    //Rect src = new Rect(23, 12, 23, 12);
+                    //RectF dst = new RectF(0, 20, 0, 20); Paint paint = new Paint();
+                    //canvas.DrawBitmap(drawingCache, src, dst, paint);
+
+
+
+                    //Bitmap piece = Bitmap.CreateBitmap(normalImages, row, col, 30, 30);
+
+
+
+
+
+                    //Drawable myDrawable = getResources().getDrawable(R.drawable.logo);
+                    //Bitmap myLogo = ((BitmapDrawable)myDrawable).getBitmap();
+
+
+
+
 
                     // Instantiate XuzzleSquare.
                     PuzzleSquare square = new PuzzleSquare(normalImages[index], index)
@@ -67,6 +113,7 @@ namespace Puzzles
                         Row = row,
                         Col = col
                     };
+
 
                     // Add tap recognition
                     TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer
@@ -78,15 +125,15 @@ namespace Puzzles
 
                     // Add it to the array and the AbsoluteLayout.
                     squares[row, col] = square;
+
                     absoluteLayout.Children.Add(square);
                     index++;
-
-                   
                 }
             }
 
+
             // This is the "Randomize" button.
-            randomizeButton = new Button
+            randomizeButton = new Xamarin.Forms.Button
             {
                 Text = "Randomize",
                 HorizontalOptions = LayoutOptions.Center,
@@ -103,8 +150,8 @@ namespace Puzzles
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
-          
-        // Put everything in a StackLayout.
+
+            // Put everything in a StackLayout.
             stackLayout = new StackLayout
             {
                 Children = {
@@ -114,15 +161,15 @@ namespace Puzzles
                                         Children = {
                                             randomizeButton,
                                             timeLabel,
-                                            
-                                          
+
+
                                         }
                                     },
                                     absoluteLayout
                                 }
-                
 
-                
+
+
             };
             stackLayout.SizeChanged += OnStackSizeChanged;
 
@@ -152,14 +199,16 @@ namespace Puzzles
             foreach (View view in absoluteLayout.Children)
             {
                 PuzzleSquare square = (PuzzleSquare)view;
- 
-               
-                AbsoluteLayout.SetLayoutBounds(square,
+
+
+                Xamarin.Forms.AbsoluteLayout.SetLayoutBounds(square,
                     new Rectangle(square.Col * squareSize,
                         square.Row * squareSize,
                         squareSize,
                         squareSize));
             }
+
+
         }
 
         async void OnSquareTapped(object parameter)
@@ -186,9 +235,9 @@ namespace Puzzles
                 await DisplayAlert("CONGRATULATION", "YOU WON", "OK");
             }
         }
-    
 
-    async Task ShiftIntoEmpty(int tappedRow, int tappedCol, uint length = 100)
+
+        async Task ShiftIntoEmpty(int tappedRow, int tappedCol, uint length = 100)
         {
             // Shift columns.
             if (tappedRow == emptyRow && tappedCol != emptyCol)
@@ -221,11 +270,13 @@ namespace Puzzles
             // The Square to be animated.
             PuzzleSquare animaSquare = squares[row, col];
 
+
             // The destination rectangle.
             Rectangle rect = new Rectangle(squareSize * emptyCol,
                                           squareSize * emptyRow,
                                           squareSize,
                                           squareSize);
+
 
             // This is the actual animation call.
             await animaSquare.LayoutTo(rect, length);
@@ -241,7 +292,7 @@ namespace Puzzles
 
         async void OnRandomizeButtonClicked(object sender, EventArgs args)
         {
-            Button button = (Button)sender;
+            Xamarin.Forms.Button button = (Xamarin.Forms.Button)sender;
             button.IsEnabled = false;
             Random rand = new Random();
 
@@ -295,16 +346,23 @@ namespace Puzzles
             randomizeButton.IsEnabled = true;
             isBusy = false;
         }
+
+    
+
+
+
     }
+
+    
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
