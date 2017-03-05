@@ -13,11 +13,11 @@
         android:id="@+id/Camera"
         android:layout_gravity="center"
         android:layout_marginTop="150dp" />
-  <Button
+    <Button
         android:background="@drawable/puzzle"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/Puzzle"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="50dp" />
 </LinearLayout>
