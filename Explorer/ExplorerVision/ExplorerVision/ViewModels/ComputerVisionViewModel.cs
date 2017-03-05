@@ -109,14 +109,36 @@ namespace CognitiveServices.ViewModels
                     // on all Solution projects
                     await CrossMedia.Current.Initialize();
 
-                    var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
+                    var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                    {
+                        Directory = "Explorer",
+                        Name = $"{DateTime.UtcNow}.jpg"
+                    };
+
+                    mediaOptions.SaveToAlbum = true;
+
+                    //var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
+
+                   
+                   
+                   var mediaFile = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+                    
 
                     _imageStream = mediaFile?.GetStream();
 
                     ImageUrl = mediaFile?.Path;
-                });
+
+
+                    await CrossMedia.Current.Initialize();
+
+                    
+                   
+
+                    });
             }
         }
+
+
 
         public Command PickPhotoCommand
         {
