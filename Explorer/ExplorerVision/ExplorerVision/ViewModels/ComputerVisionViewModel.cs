@@ -13,6 +13,7 @@ using ComputerVisionApplication.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
+using Android.Speech.Tts;
 
 namespace CognitiveServices.ViewModels
 {
@@ -36,14 +37,24 @@ namespace CognitiveServices.ViewModels
         private string _errorMessage;
         private bool _isBusy;
 
+       
+
+
+
         public ImageResult ImageResult
         {
+            
             get { return _imageResult; }
             set
             {
+                
                 _imageResult = value;
                 OnPropertyChanged();
+                
+               
             }
+
+            
         }
 
         public OcrResult OcrResult
@@ -200,6 +211,7 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = string.Empty;
 
                         ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
+                    
                     }
                     catch (Exception exception)
                     {
@@ -236,6 +248,8 @@ namespace CognitiveServices.ViewModels
             }
         }
 
+
+
         public Command ExtractTextFromImageStreamCommand
         {
             get
@@ -248,7 +262,6 @@ namespace CognitiveServices.ViewModels
                     {
                         ImageResult = null;
                         ErrorMessage = string.Empty;
-
                         OcrResult = await _computerVisionService.ExtractTextFromImageStreamAsync(_imageStream);
                     }
                     catch (Exception exception)
@@ -311,6 +324,8 @@ namespace CognitiveServices.ViewModels
                 });
             }
         }
+
+
         
         public event PropertyChangedEventHandler PropertyChanged;
 

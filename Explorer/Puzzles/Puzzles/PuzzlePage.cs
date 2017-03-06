@@ -65,7 +65,6 @@ namespace Puzzles
             Image[] normalImages = new Image[NUM * NUM];
 
 
-
             int index = 0;
 
 
@@ -84,8 +83,9 @@ namespace Puzzles
                     normalImages[index].Source = ImageSource
                     .FromResource(String.Format("Puzzles.test.png", index + 1));
 
-                    //ImageView imageview = (ImageView)("Puzzles.test.png");
                     
+                    //ImageView imageview = (ImageView)("Puzzles.test.png");
+
                     //Bitmap drawingCache = imageview.GetDrawingCache(true);
                     //Canvas canvas = new Canvas();
                     //Rect src = new Rect(23, 12, 23, 12);
