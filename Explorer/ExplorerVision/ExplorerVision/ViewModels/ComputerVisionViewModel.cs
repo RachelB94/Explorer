@@ -142,10 +142,25 @@ namespace CognitiveServices.ViewModels
 
                     await CrossMedia.Current.Initialize();
 
-                    
-                   
 
-                    });
+                    IsBusy = true;
+                    try
+                    {
+                        ImageResult = null;
+                        ErrorMessage = string.Empty;
+                        ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
+                    }
+                    catch (Exception exception)
+                    {
+                        ErrorMessage = exception.Message;
+                    }
+
+                    IsBusy = false;
+
+
+
+
+                });
             }
         }
 

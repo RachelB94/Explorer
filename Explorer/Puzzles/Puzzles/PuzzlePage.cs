@@ -19,7 +19,7 @@ namespace Puzzles
     {
 
 
-       
+
 
 
         // Number of squares horizontally and vertically,
@@ -28,7 +28,7 @@ namespace Puzzles
 
 
 
-       
+
         // Array of XuzzleSquare views, and empty row & column.
         PuzzleSquare[,] squares = new PuzzleSquare[NUM, NUM];
         Bitmap[,] bmp;
@@ -60,7 +60,7 @@ namespace Puzzles
 
 
             // Create XuzzleSquare's for all the rows and columns.
-           
+
 
             Image[] normalImages = new Image[NUM * NUM];
 
@@ -76,14 +76,17 @@ namespace Puzzles
                     if (row == NUM - 1 && col == NUM - 1)
                         break;
 
-                  
+
 
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
                     normalImages[index].Source = ImageSource
                     .FromResource(String.Format("Puzzles.test.png", index + 1));
 
-                    
+
+                    //Bitmap image = BitmapFactory.DecodeFile("Puzzles.test.png");
+                    //getPuzzleBitmap(image);
+
                     //ImageView imageview = (ImageView)("Puzzles.test.png");
 
                     //Bitmap drawingCache = imageview.GetDrawingCache(true);
@@ -178,6 +181,8 @@ namespace Puzzles
                 new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0);
             this.Content = stackLayout;
         }
+
+
 
         void OnStackSizeChanged(object sender, EventArgs args)
         {
@@ -347,11 +352,58 @@ namespace Puzzles
             isBusy = false;
         }
 
-    
+
+        //Android.Graphics.Path puzzlePath;
+
+        //private Bitmap getPuzzleBitmap(Bitmap bitmap)
+        //{
+        //    Bitmap output = Bitmap.CreateBitmap(bitmap.Width, bitmap.Height, Bitmap.Config.Argb8888);
+        //    Canvas canvas = new Canvas(output);
 
 
+        //    Paint paint = new Paint();
+        //    Rect rect = new Rect(0, 0, bitmap.Width, bitmap.Height);
+
+        //    calculatePuzzlePath(bitmap.Width, bitmap.Height);
+
+
+        //    canvas.DrawARGB(0, 0, 0, 0);
+
+        //    canvas.DrawPath(puzzlePath, paint);
+
+        //    paint.SetXfermode(new PorterDuffXfermode(PorterDuff.Mode.SrcIn));
+        //    canvas.DrawBitmap(bitmap, rect, rect, paint);
+
+        //    return output;
+        //}
+
+        //private void calculatePuzzlePath(int width, int height)
+        //{
+        //    float radius = (height / 2) - 5;
+        //    float smallRadius = radius / 3;
+        //    radius -= smallRadius * 2;
+        //    float centerX = width / 2;
+        //    float centerY = height / 2;
+        //    Android.Graphics.Path puzzlePath = new Android.Graphics.Path();
+        //    // Bottom right
+        //    puzzlePath.MoveTo(centerX + radius, centerY + radius);
+        //    // Top right
+        //    puzzlePath.LineTo(centerX + radius, centerY - radius);
+        //    // Center top
+        //    puzzlePath.LineTo(centerX, centerY - radius);
+        //    // Add outside circle to center top
+        //    puzzlePath.AddCircle(centerX, centerY - radius - ((radius / 3) / 2), radius / 3, Android.Graphics.Path.Direction.Ccw);
+
+        //    // Top left
+        //    puzzlePath.LineTo(centerX - radius, centerY - radius);
+        //    // Bottom left
+        //    puzzlePath.LineTo(centerX - radius, centerY + radius);
+        //    //Bottom right
+        //    puzzlePath.LineTo(centerX + radius, centerY + radius);
+        //}
 
     }
+}
 
     
 
@@ -365,4 +417,3 @@ namespace Puzzles
 
 
 
-}

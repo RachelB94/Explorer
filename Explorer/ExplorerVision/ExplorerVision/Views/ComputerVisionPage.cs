@@ -15,7 +15,7 @@ namespace CognitiveServices.Views
 
             var image = new Image
             {
-                HeightRequest = 200,
+                HeightRequest = 400,
                 WidthRequest= 320
                 
             };
@@ -55,14 +55,14 @@ namespace CognitiveServices.Views
             //};
             //analyseImageUrlButton.SetBinding(Button.CommandProperty, "AnalyseImageUrlCommand");
 
-            var analyseImageStreamButton = new Button
-            {
-                Text = "Analyse Image Stream",
-                TextColor = Color.White,
-                BackgroundColor = Color.Green,
-                FontSize = 24
-            };
-            analyseImageStreamButton.SetBinding(Button.CommandProperty, "AnalyseImageStreamCommand");
+            //var analyseImageStreamButton = new Button
+            //{
+            //    Text = "Analyse Image Stream",
+            //    TextColor = Color.White,
+            //    BackgroundColor = Color.Green,
+            //    FontSize = 24
+            //};
+            //analyseImageStreamButton.SetBinding(Button.CommandProperty, "AnalyseImageStreamCommand");
 
             //var extractTextFromImageUrlButton = new Button
             //{
@@ -202,7 +202,7 @@ namespace CognitiveServices.Views
                      takePhotoButton,
                     //imageUrlEntry,
                     //analyseImageUrlButton,
-                    analyseImageStreamButton,
+                    //analyseImageStreamButton,
                     isBusyActivityIndicator,
                     errorMessageLabel,
                     captionsLabel,
