@@ -8,14 +8,21 @@ using CognitiveServices.Models.Image;
 using CognitiveServices.Models.Ocr;
 using ComputerVisionApplication.Models;
 using Newtonsoft.Json;
+using Xamarin.Forms;
+using ExplorerVision;
+using Android.Speech.Tts;
 
 namespace CognitiveServices.Services
 {
     /// <summary>
     /// Client for Computer Vision API (Microsoft Cognitive Services).
     /// </summary>
+
+  
     public class ComputerVisionService
     {
+
+        public TextToSpeech speakText { get; set; }
 
         /// <summary>
         /// Get a subscription key from:
@@ -68,7 +75,10 @@ namespace CognitiveServices.Services
                     var imageResult = JsonConvert.DeserializeObject<ImageResult>(json);
 
                     return imageResult;
+
                 }
+
+               
 
                 throw new Exception(json);
             }
@@ -76,6 +86,8 @@ namespace CognitiveServices.Services
             {
                 throw exception;
             }
+
+           
 
             return null;
         }
@@ -118,6 +130,7 @@ namespace CognitiveServices.Services
 
             return null;
         }
+
 
         /// <summary>
         /// Optical Character Recognition (OCR) detects text in an image 

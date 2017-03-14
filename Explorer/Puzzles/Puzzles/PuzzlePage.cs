@@ -1,4 +1,6 @@
-﻿using Android.Graphics;
+﻿
+
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Util;
 using Android.Widget;
@@ -68,6 +70,7 @@ namespace Puzzles
             int index = 0;
 
 
+
             for (int row = 0; row < NUM; row++)
             {
                 for (int col = 0; col < NUM; col++)
@@ -80,11 +83,18 @@ namespace Puzzles
 
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
-                    normalImages[index].Source = ImageSource
-                    .FromResource(String.Format("Puzzles.test.png", index + 1));
+                    //normalImages[index].Source = ImageSource
+                    //.FromResource(String.Format("Puzzles.test.png", index + 1));
+
+                    //Bitmap bmp = BitmapFactory.DecodeResourceAsync(String.Format("Puzzles.test.png"));
+                    //BitmapDrawable bitmapDrawable = new BitmapDrawable(bmp);
+                    //bitmapDrawable.SetTileModeXY(Shader.TileMode.Repeat, Shader.TileMode.Repeat);
 
 
-                    //Bitmap image = BitmapFactory.DecodeFile("Puzzles.test.png");
+
+
+
+
                     //getPuzzleBitmap(image);
 
                     //ImageView imageview = (ImageView)("Puzzles.test.png");
@@ -118,6 +128,7 @@ namespace Puzzles
                     };
 
 
+
                     // Add tap recognition
                     TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer
                     {
@@ -126,6 +137,8 @@ namespace Puzzles
                     };
                     square.GestureRecognizers.Add(tapGestureRecognizer);
 
+                    Bitmap bitmap = BitmapFactory.DecodeFile("Puzzles.test.png");
+                    cropBitmap(bitmap, Convert.ToInt32(square.WidthRequest), Convert.ToInt32(square.HeightRequest));
                     // Add it to the array and the AbsoluteLayout.
                     squares[row, col] = square;
 
@@ -191,6 +204,8 @@ namespace Puzzles
 
             if (width <= 0 || height <= 0)
                 return;
+
+
 
             // Orient StackLayout based on portrait/landscape mode.
             stackLayout.Orientation = (width < height) ? StackOrientation.Vertical :
@@ -352,6 +367,36 @@ namespace Puzzles
             isBusy = false;
         }
 
+        public static Bitmap cropBitmap(Bitmap original, int height, int width)
+        {
+            Bitmap croppedImage = Bitmap.CreateBitmap(width, height, Bitmap.Config.Rgb565);
+            Canvas canvas = new Canvas(croppedImage);
+
+            Rect srcRect = new Rect(0, 0, original.Width, original.Height);
+            Rect dstRect = new Rect(0, 0, width, height);
+
+            int dx = (srcRect.Width() - dstRect.Width()) / 2;
+            int dy = (srcRect.Height() - dstRect.Height()) / 2;
+
+            // If the srcRect is too big, use the center part of it.
+            srcRect.Inset(Math.Max(0, dx), Math.Max(0, dy));
+
+            // If the dstRect is too big, use the center part of it.
+            dstRect.Inset(Math.Max(0, -dx), Math.Max(0, -dy));
+
+            // Draw the cropped bitmap in the center
+            canvas.DrawBitmap(original, srcRect, dstRect, null);
+
+            original.Recycle();
+
+            return croppedImage;
+        }
+
+
+
+
+
+
 
         //Android.Graphics.Path puzzlePath;
 
@@ -402,10 +447,33 @@ namespace Puzzles
         //    puzzlePath.LineTo(centerX + radius, centerY + radius);
         //}
 
+        private void SplitImage(Bitmap _thePicture)
+        {
+            Bitmap[,] imgs;
+
+            imgs = new Bitmap[3, 3];
+            int width, height;
+            width = _thePicture.Width / 3;
+            height = _thePicture.Height / 3;
+
+            for (int x = 0; x < 3; ++x)
+            {
+                for (int y = 0; y < 3; ++y)
+                {
+
+                    // Create the sliced bitmap
+                    imgs[x, y] = Bitmap.CreateBitmap(_thePicture, x * width, y * height, width, height);
+                }
+            }
+
+
+        }
+
+
     }
 }
 
-    
+
 
 
 

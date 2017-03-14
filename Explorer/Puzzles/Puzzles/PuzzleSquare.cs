@@ -86,14 +86,15 @@ namespace Puzzles
 
 
 
-           
+
 
             Image shown = new Image
             {
                 Source = text.Source,
-              
-               
 
+
+                HeightRequest = 150,
+                WidthRequest  = 100,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
 

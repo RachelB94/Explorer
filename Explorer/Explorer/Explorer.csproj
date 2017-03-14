@@ -154,9 +154,11 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Puzzle.cs" />
+    <Compile Include="PuzzleProcess.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Splash.cs" />
+    <Compile Include="TextToSpeechImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -194,6 +196,10 @@
     <ProjectReference Include="..\ExplorerVision\ExplorerVision\ExplorerVision.csproj">
       <Project>{86454EC1-F83C-4811-8729-563021F50388}</Project>
       <Name>ExplorerVision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenCV.Binding\OpenCV.Binding.csproj">
+      <Project>{3675B5A0-535B-4CFB-B523-ED60837278B9}</Project>
+      <Name>OpenCV.Binding</Name>
     </ProjectReference>
     <ProjectReference Include="..\Puzzles\Puzzles\Puzzles.csproj">
       <Project>{3C7127AC-AFC7-4189-AA20-0140973D88E8}</Project>

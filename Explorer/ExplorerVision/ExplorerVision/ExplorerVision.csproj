@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Converters\ListOfLinesToOneStringConverter.cs" />
     <Compile Include="Converters\ListOfStringToOneStringConverter.cs" />
+    <Compile Include="ITextToSpeech.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

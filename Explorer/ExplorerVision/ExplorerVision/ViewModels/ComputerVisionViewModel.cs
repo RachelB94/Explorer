@@ -14,12 +14,15 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
 using Android.Speech.Tts;
+using ExplorerVision;
 
 namespace CognitiveServices.ViewModels
 {
     public class ComputerVisionViewModel : INotifyPropertyChanged
     {
-
+        
+        public TextToSpeech speakText { get; set; }
+        
         private ImageResult _imageResult;
         private OcrResult _imageResultOcr;
         private List<EmotionResult> _imageResultEmotions;
@@ -50,11 +53,12 @@ namespace CognitiveServices.ViewModels
                 
                 _imageResult = value;
                 OnPropertyChanged();
-                
                
+
             }
 
-            
+
+
         }
 
         public OcrResult OcrResult
@@ -149,16 +153,21 @@ namespace CognitiveServices.ViewModels
                         ImageResult = null;
                         ErrorMessage = string.Empty;
                         ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
+                      
                     }
                     catch (Exception exception)
                     {
                         ErrorMessage = exception.Message;
                     }
 
+
+                    //DependencyService.Get<ITextToSpeech>().Speak(_imageResult.ToString());
+
+
                     IsBusy = false;
 
 
-
+                 
 
                 });
             }
@@ -208,6 +217,9 @@ namespace CognitiveServices.ViewModels
                     }
 
                     IsBusy = false;
+
+                   
+
                 });
             }
         }
@@ -226,7 +238,7 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = string.Empty;
 
                         ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
-                    
+
                     }
                     catch (Exception exception)
                     {
@@ -234,10 +246,18 @@ namespace CognitiveServices.ViewModels
                     }
 
                     IsBusy = false;
+
+                    
                 });
+
+
+
+
             }
         }
 
+
+       
         public Command ExtractTextFromImageUrlCommand
         {
             get
@@ -258,7 +278,10 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = exception.Message;
                     }
 
+                   
                     IsBusy = false;
+
+                   
                 });
             }
         }
@@ -284,6 +307,7 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = exception.Message;
                     }
 
+                    DependencyService.Get<ITextToSpeech>().Speak(OcrResult.ToString());
                     IsBusy = false;
                 });
             }
@@ -311,6 +335,8 @@ namespace CognitiveServices.ViewModels
                     }
 
                     IsBusy = false;
+
+                    DependencyService.Get<ITextToSpeech>().Speak(ImageResultEmotions.ToString());
                 });
             }
         }
@@ -336,17 +362,20 @@ namespace CognitiveServices.ViewModels
                     }
 
                     IsBusy = false;
+
                 });
             }
         }
 
 
         
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+          
         }
     }
 }

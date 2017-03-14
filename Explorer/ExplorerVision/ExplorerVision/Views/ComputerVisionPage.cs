@@ -3,14 +3,18 @@ using CognitiveServices.ViewModels;
 using Xamarin.Forms;
 using Plugin.Media;
 using Android.Views;
+using Android.Speech.Tts;
+using ExplorerVision;
 
 namespace CognitiveServices.Views
 {
     public class ComputerVisionPage : ContentPage
     {
+
+        public TextToSpeech SpeechText { get; set; }
         public ComputerVisionPage()
         {
-
+           
             BindingContext = new ComputerVisionViewModel();
 
             var image = new Image
@@ -89,7 +93,8 @@ namespace CognitiveServices.Views
             var captionsLabel = new Label
             {
                 TextColor = Color.Black,
-                FontSize = 20
+                FontSize = 20,
+                
             };
             captionsLabel.SetBinding(Label.TextProperty, new Binding(
                 "ImageResult.Description.Captions[0].Text",
@@ -97,6 +102,8 @@ namespace CognitiveServices.Views
                 null,
                 null
                ));
+
+ 
 
             //var isAdultContentLabel = new Label
             //{

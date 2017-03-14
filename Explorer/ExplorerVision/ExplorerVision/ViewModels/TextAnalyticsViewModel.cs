@@ -6,6 +6,7 @@ using ComputerVisionApplication.Models.Language;
 using ComputerVisionApplication.Models.Sentiment;
 using ComputerVisionApplication.Services;
 using Xamarin.Forms;
+using ExplorerVision;
 
 namespace CognitiveServices.ViewModels
 {
@@ -27,6 +28,7 @@ namespace CognitiveServices.ViewModels
             set
             {
                 _text = value;
+                DependencyService.Get<ITextToSpeech>().Speak(_text);
                 OnPropertyChanged();
             }
         }
@@ -100,6 +102,8 @@ namespace CognitiveServices.ViewModels
                     {
                         ErrorMessage = exception.Message;
                     }
+
+                    
 
                     IsBusy = false;
                 });
