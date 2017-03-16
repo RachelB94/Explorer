@@ -16,7 +16,7 @@ namespace Explorer
 {
     class PuzzleProcess
     {
-        private const int GridSize = 4;
+        private const int GridSize = 2;
         private const int GridArea = GridSize * GridSize;
         private const int GridEmptyIndex = GridArea - 1;
         private static readonly Scalar GridEmptyColor = new Scalar(0x33, 0x33, 0x33, 0xFF);
@@ -133,8 +133,8 @@ namespace Explorer
                 int rows = inputPicture.Rows();
                 int cols = inputPicture.Cols();
 
-                rows = rows - rows % 4;
-                cols = cols - cols % 4;
+                rows = rows - rows % 2;
+                cols = cols - cols % 2;
 
                 for (int i = 0; i < GridSize; i++)
                 {
@@ -147,8 +147,8 @@ namespace Explorer
                     }
                 }
 
-                rows = rows - rows % 4;
-                cols = cols - cols % 4;
+                rows = rows - rows % 2;
+                cols = cols - cols % 2;
 
                 // copy shuffled tiles
                 for (int i = 0; i < GridArea; i++)

@@ -1,6 +1,4 @@
-﻿
-
-using Android.Graphics;
+﻿using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Util;
 using Android.Widget;
@@ -83,8 +81,8 @@ namespace Puzzles
 
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
-                    //normalImages[index].Source = ImageSource
-                    //.FromResource(String.Format("Puzzles.test.png", index + 1));
+                    normalImages[index].Source = ImageSource
+                    .FromResource(String.Format("Puzzles.Images.flower" + index  + ".png"));
 
                     //Bitmap bmp = BitmapFactory.DecodeResourceAsync(String.Format("Puzzles.test.png"));
                     //BitmapDrawable bitmapDrawable = new BitmapDrawable(bmp);
@@ -137,8 +135,8 @@ namespace Puzzles
                     };
                     square.GestureRecognizers.Add(tapGestureRecognizer);
 
-                    Bitmap bitmap = BitmapFactory.DecodeFile("Puzzles.test.png");
-                    cropBitmap(bitmap, Convert.ToInt32(square.WidthRequest), Convert.ToInt32(square.HeightRequest));
+                    //Bitmap bitmap = BitmapFactory.DecodeFile("Puzzles.test.png");
+                    //cropBitmap(bitmap, Convert.ToInt32(square.WidthRequest), Convert.ToInt32(square.HeightRequest));
                     // Add it to the array and the AbsoluteLayout.
                     squares[row, col] = square;
 
@@ -468,6 +466,7 @@ namespace Puzzles
 
 
         }
+
 
 
     }

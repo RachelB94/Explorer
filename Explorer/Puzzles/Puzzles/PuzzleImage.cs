@@ -16,9 +16,10 @@ namespace Puzzles
         Bitmap originalBitmap = BitmapFactory.DecodeFile("Puzzles.test.png");
 
        
-
+        [assembly:ExportRender(typeof(PuzzleImage), typeof(PuzzleImageRenderer))]
         public PuzzleImage()
         {
+
             int Height, Width;
             Height = 150;
             Width = 150;
