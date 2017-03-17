@@ -24,14 +24,14 @@ namespace Puzzles
 
         // Number of squares horizontally and vertically,
         //  but if you change it, some code will break.
-        static readonly int NUM = 2;
+        static readonly int NUM = 4;
 
 
 
 
         // Array of XuzzleSquare views, and empty row & column.
         PuzzleSquare[,] squares = new PuzzleSquare[NUM, NUM];
-        Bitmap[,] bmp;
+        //Bitmap[,] bmp;
 
 
 
@@ -82,7 +82,7 @@ namespace Puzzles
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
                     normalImages[index].Source = ImageSource
-                    .FromResource(String.Format("Puzzles.Images.flower" + index  + ".png"));
+                    .FromResource(String.Format("Puzzles.ImagesMedium.insect" + index  + ".png"));
 
                     //Bitmap bmp = BitmapFactory.DecodeResourceAsync(String.Format("Puzzles.test.png"));
                     //BitmapDrawable bitmapDrawable = new BitmapDrawable(bmp);
@@ -445,32 +445,30 @@ namespace Puzzles
         //    puzzlePath.LineTo(centerX + radius, centerY + radius);
         //}
 
-        private void SplitImage(Bitmap _thePicture)
-        {
-            Bitmap[,] imgs;
+        //private void SplitImage(Bitmap _thePicture)
+        //{
+        //    Bitmap[,] imgs;
 
-            imgs = new Bitmap[3, 3];
-            int width, height;
-            width = _thePicture.Width / 3;
-            height = _thePicture.Height / 3;
+        //    imgs = new Bitmap[3, 3];
+        //    int width, height;
+        //    width = _thePicture.Width / 3;
+        //    height = _thePicture.Height / 3;
 
-            for (int x = 0; x < 3; ++x)
-            {
-                for (int y = 0; y < 3; ++y)
-                {
+        //    for (int x = 0; x < 3; ++x)
+        //    {
+        //        for (int y = 0; y < 3; ++y)
+        //        {
 
-                    // Create the sliced bitmap
-                    imgs[x, y] = Bitmap.CreateBitmap(_thePicture, x * width, y * height, width, height);
-                }
-            }
+        //            // Create the sliced bitmap
+        //            imgs[x, y] = Bitmap.CreateBitmap(_thePicture, x * width, y * height, width, height);
+        //        }
+        //    }
 
 
         }
 
-
-
     }
-}
+
 
 
 
