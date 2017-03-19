@@ -91,10 +91,6 @@ namespace Puzzles
             Image shown = new Image
             {
                 Source = text.Source,
-
-
-                HeightRequest = 150,
-                WidthRequest  = 100,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
 
@@ -105,7 +101,6 @@ namespace Puzzles
             // A Frame surrounding two Labels.
             label = new Label
             {
-                
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
@@ -130,9 +125,10 @@ namespace Puzzles
                 {
                     Spacing = 0,
                     Children = {
-                                shown,
+                               
                                 tinyLabel,
-                                
+                                shown,
+
                             }
                 }
             };
