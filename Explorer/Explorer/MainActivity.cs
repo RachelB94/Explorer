@@ -25,7 +25,7 @@ namespace Explorer
             Button buttonPuzzle = FindViewById<Button>(Resource.Id.Puzzle);
             buttonPuzzle.Click += delegate
             {
-                StartActivity(typeof(Puzzle));
+                StartActivity(typeof(Levels));
             };
 
         }

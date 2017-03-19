@@ -15,13 +15,49 @@ using Xamarin.Forms.Xaml;
 
 namespace Puzzles
 {
+
     public class PuzzlePage : ContentPage
     {
 
         // Number of squares horizontally and vertically,
         //  but if you change it, some code will break.
-        static readonly int NUM = 5;
-     
+
+
+        static int NUM;
+
+
+        public void SetLevel(int num)
+        {
+            if (num == 2)
+            {
+                NUM = 2;
+            }
+            
+
+
+                if (num == 4)
+                {
+                    NUM = 4;
+                }
+
+
+                
+
+
+                    if (num == 5)
+                    {
+                        NUM = 5;
+                    }
+                }
+            
+         
+        
+
+
+
+
+
+
 
         // Array of XuzzleSquare views, and empty row & column.
         PuzzleSquare[,] squares = new PuzzleSquare[NUM, NUM];
@@ -45,6 +81,8 @@ namespace Puzzles
 
         public PuzzlePage()
         {
+
+            
             // AbsoluteLayout to host the squares.
             absoluteLayout = new Xamarin.Forms.AbsoluteLayout()
             {
@@ -75,8 +113,24 @@ namespace Puzzles
 
                     // Instantiate the image reading it from the local resources. 
                     normalImages[index] = new Image();
-                    normalImages[index].Source = ImageSource
-                    .FromResource(String.Format("Puzzles.Images5X5.nature" + index  + ".png"));
+
+                    if(NUM == 2)
+                    {
+                        normalImages[index].Source = ImageSource
+                   .FromResource(String.Format("Puzzles.Images.flower" + index + ".png"));
+                    }
+                    if(NUM == 4)
+                    {
+                        normalImages[index].Source = ImageSource
+                   .FromResource(String.Format("Puzzles.ImagesMedium.insect" + index + ".png"));
+                    }
+                    if(NUM == 5)
+                    {
+                        normalImages[index].Source = ImageSource
+                   .FromResource(String.Format("Puzzles.Images5X5.nature" + index + ".png"));
+                    }
+                   
+               
 
                     //Bitmap bmp = BitmapFactory.DecodeResourceAsync(String.Format("Puzzles.test.png"));
                     //BitmapDrawable bitmapDrawable = new BitmapDrawable(bmp);

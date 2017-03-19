@@ -13,6 +13,7 @@ namespace Puzzles
         {
             InitializeComponent();
 
+          
             MainPage = new PuzzlePage();
         }
 
