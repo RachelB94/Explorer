@@ -37,8 +37,14 @@ namespace Explorer
                 StartActivity(typeof(Levels));
             };
 
+            Button buttonQuiz = FindViewById<Button>(Resource.Id.Quiz);
+            buttonQuiz.Click += delegate
+            {
+                StartActivity(typeof(Quiz));
+            };
 
-           
+
+
         }
 
        // public TaskStackBuilder LoadData
