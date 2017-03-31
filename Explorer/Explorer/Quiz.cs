@@ -15,7 +15,7 @@ namespace Explorer
     {
 
 
-        int NUMOFQUESTIONS = 4;
+        int NUMOFQUESTIONS = 10;
         // questions used in this quiz
         private Questions[] q;
 
@@ -65,12 +65,29 @@ namespace Explorer
             Questions q1 = new Questions(Resource.Drawable.butterfly, "What insect is this?", "Lady Bird", "Butterfly", "Bee", "B");
             Questions q2 = new Questions(Resource.Drawable.spider, "How many legs does a spider have?", "8", "5", "10", "A");
             Questions q3 = new Questions(Resource.Drawable.caterpillar, "What does this insect turn into?", "Fly", "Butterfly", "Dragonfly", "B");
+            Questions q4 = new Questions(Resource.Drawable.fly, "How many wings does a fly have?", "2", "4", "6", "A");
+            Questions q5 = new Questions(Resource.Drawable.oak, "What type of tree is this?", "Ash", "Birch", "Oak", "C");
+            Questions q6 = new Questions(Resource.Drawable.butterflywing, "What insect does this wing belong too?", "Fly", "Butterfly", "Dragonfly", "B");
+            Questions q7 = new Questions(Resource.Drawable.insects, "How many legs does an insect have?", "6", "4", "10", "A");
+            Questions q8 = new Questions(Resource.Drawable.snail, "How long can a snail sleep for?", "3 Years", "3 Weeks", "3 Days", "A");
+            Questions q9 = new Questions(Resource.Drawable.bee, "What insect is this?", "Wasp", "Bee", "Hornet", "B");
+            Questions q10 = new Questions(Resource.Drawable.beehive, "Who's home is this?", "Ladybird", "Fruit Fly", "Bee", "C");
+            Questions q11 = new Questions(Resource.Drawable.tree, "Which does not come from a tree?", "Leafs", "Fruit","Flowers", "C");
+            Questions q12 = new Questions(Resource.Drawable.ladybird, "What is this?", "Ladybird", "Beatle", "Bee", "A");
+            Questions q13 = new Questions(Resource.Drawable.spiderr, "Is a spider an insect?", "Yes", "No", "Some species are", "A");
+            Questions q14 = new Questions(Resource.Drawable.tree, "How old is the oldest tree?", "50 years old", "5,000 years old", "500 years old", "B");
+            Questions q15 = new Questions(Resource.Drawable.ant, "What is this?", "Ant", "Beatle", "Termite", "A");
+            Questions q16 = new Questions(Resource.Drawable.stick, "What is this", "Grasshoper", "Stick Insect", "Twig", "B");
+            Questions q17 = new Questions(Resource.Drawable.earwig, "What is this?", "Ant", "Beatle", "Earwig", "C");
+            Questions q18 = new Questions(Resource.Drawable.closespider, "What insect is this?", "Ant", "Bee", "Spider", "C");
+            Questions q19 = new Questions(Resource.Drawable.insects, "How many kinds of insects are there?", "1,000", "3,000", "10,000", "B");
             // load questions for quiz
             this.q = new Questions[NUMOFQUESTIONS];
             q[0] = q0;
             q[1] = q1;
             q[2] = q2;
             q[3] = q3;
+            q[4] = q4;
             quest_tv1.Text = (q[0].getQuestionBody());
             a_rb.Text = (q[index].getChoiceA());
             b_rb.Text = (q[index].getChoiceB());
