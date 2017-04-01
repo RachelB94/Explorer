@@ -74,7 +74,7 @@ namespace Explorer
             Questions q10 = new Questions(Resource.Drawable.beehive, "Who's home is this?", "Ladybird", "Fruit Fly", "Bee", "C");
             Questions q11 = new Questions(Resource.Drawable.tree, "Which does not come from a tree?", "Leafs", "Fruit","Flowers", "C");
             Questions q12 = new Questions(Resource.Drawable.ladybird, "What is this?", "Ladybird", "Beatle", "Bee", "A");
-            Questions q13 = new Questions(Resource.Drawable.spiderr, "Is a spider an insect?", "Yes", "No", "Some species are", "A");
+            Questions q13 = new Questions(Resource.Drawable.spiderr, "Is a spider an insect?", "Yes", "No", "Some species are", "B");
             Questions q14 = new Questions(Resource.Drawable.tree, "How old is the oldest tree?", "50 years old", "5,000 years old", "500 years old", "B");
             Questions q15 = new Questions(Resource.Drawable.ant, "What is this?", "Ant", "Beatle", "Termite", "A");
             Questions q16 = new Questions(Resource.Drawable.stick, "What is this", "Grasshoper", "Stick Insect", "Twig", "B");
