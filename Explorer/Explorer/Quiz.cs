@@ -15,7 +15,7 @@ namespace Explorer
     {
 
 
-        int NUMOFQUESTIONS = 10;
+        int NUMOFQUESTIONS = 20;
         // questions used in this quiz
         private Questions[] q;
 
@@ -88,6 +88,21 @@ namespace Explorer
             q[2] = q2;
             q[3] = q3;
             q[4] = q4;
+            q[5] = q5;
+            q[6] = q6;
+            q[7] = q7;
+            q[8] = q8;
+            q[9] = q9;
+            q[10] = q10;
+            q[11] = q11;
+            q[12] = q12;
+            q[13] = q13;
+            q[14] = q14;
+            q[15] = q15;
+            q[16] = q16;
+            q[17] = q17;
+            q[18] = q18;
+            q[19] = q19;
             quest_tv1.Text = (q[0].getQuestionBody());
             a_rb.Text = (q[index].getChoiceA());
             b_rb.Text = (q[index].getChoiceB());
