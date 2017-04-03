@@ -24,6 +24,7 @@ namespace Explorer
         // keeps track of where we are in the quiz
         private int index;
 
+
         // layout buttons
         private static ImageView pres_iv;
         private static TextView quest_tv1;
@@ -103,11 +104,18 @@ namespace Explorer
             q[17] = q17;
             q[18] = q18;
             q[19] = q19;
-            quest_tv1.Text = (q[0].getQuestionBody());
-            a_rb.Text = (q[index].getChoiceA());
-            b_rb.Text = (q[index].getChoiceB());
-            c_rb.Text = (q[index].getChoiceC());
-            pres_iv.SetImageResource(q[0].getImage());
+            Random ran = new Random();
+            int r = ran.Next(q.Length);
+
+           
+
+            quest_tv1.Text = (q[r].getQuestionBody());
+            a_rb.Text = (q[r].getChoiceA());
+            b_rb.Text = (q[r].getChoiceB());
+            c_rb.Text = (q[r].getChoiceC());
+            pres_iv.SetImageResource(q[r].getImage());
+
+            index = r;
 
             submit_b.Click += delegate
             {
@@ -152,11 +160,13 @@ namespace Explorer
 
         public Boolean isCorrect(String choice)
         {
+            
             return choice.Equals(q[index].getAnswer());
         }
 
         private void advance()
         {
+          
             // user got the current question correct if this method is called
             q[index].giveCredit();
             // advance index to point to next question
