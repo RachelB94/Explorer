@@ -18,6 +18,7 @@ namespace Explorer
         int NUMOFQUESTIONS = 20;
         // questions used in this quiz
         private Questions[] q;
+        private Questions[] subArray;
 
         // current score
         private int score;
@@ -50,7 +51,7 @@ namespace Explorer
         }
         private void initialze()
         {
-
+            int r;
             pres_iv = (ImageView)FindViewById((Resource.Id.quizImage));
             quest_tv1 = (TextView)FindViewById(Resource.Id.question);
             submit_b = (Button)FindViewById(Resource.Id.answer);
@@ -61,7 +62,7 @@ namespace Explorer
 
             index = 0;
             score = 0;
-
+            
             Questions q0 = new Questions(Resource.Drawable.aut, "What time of the year do leaf's change colour?", "Spring", "Winter", "Autumn", "C");
             Questions q1 = new Questions(Resource.Drawable.butterfly, "What insect is this?", "Lady Bird", "Butterfly", "Bee", "B");
             Questions q2 = new Questions(Resource.Drawable.spider, "How many legs does a spider have?", "8", "5", "10", "A");
@@ -104,19 +105,23 @@ namespace Explorer
             q[17] = q17;
             q[18] = q18;
             q[19] = q19;
+
+
+
+            subArray = new List<Questions>(q).GetRange(0, 10).ToArray();
             Random ran = new Random();
-            int r = ran.Next(q.Length);
+                r = ran.Next(subArray.Length);
+          
 
-           
+            quest_tv1.Text = (subArray[r].getQuestionBody());
+                a_rb.Text = (subArray[r].getChoiceA());
+                b_rb.Text = (subArray[r].getChoiceB());
+                c_rb.Text = (subArray[r].getChoiceC());
+                pres_iv.SetImageResource(subArray[r].getImage());
+                index = r;
 
-            quest_tv1.Text = (q[r].getQuestionBody());
-            a_rb.Text = (q[r].getChoiceA());
-            b_rb.Text = (q[r].getChoiceB());
-            c_rb.Text = (q[r].getChoiceC());
-            pres_iv.SetImageResource(q[r].getImage());
-
-            index = r;
-
+            
+ 
             submit_b.Click += delegate
             {
                 var rg = FindViewById<RadioGroup>(Resource.Id.radioGroup);
@@ -130,7 +135,7 @@ namespace Explorer
 
                 if (isCorrect(answers))
                 {
-                    if (!q[index].isCreditGiven())
+                    if (!subArray[index].isCreditGiven())
 
                         setScore(getScore() + 1);
                     advance();
@@ -168,18 +173,18 @@ namespace Explorer
         {
           
             // user got the current question correct if this method is called
-            q[index].giveCredit();
+            subArray[index].giveCredit();
             // advance index to point to next question
-            index = (index + 1) % q.Length;
+            index = (index + 1) % subArray.Length;
 
             //update the choices
-            a_rb.Text = (q[index].getChoiceA());
-            b_rb.Text = (q[index].getChoiceB());
-            c_rb.Text = (q[index].getChoiceC());
+            a_rb.Text = (subArray[index].getChoiceA());
+            b_rb.Text = (subArray[index].getChoiceB());
+            c_rb.Text = (subArray[index].getChoiceC());
             //update the question body
-            quest_tv1.Text = (q[index].getQuestionBody());
+            quest_tv1.Text = (subArray[index].getQuestionBody());
             //update the image
-            pres_iv.SetImageResource(q[index].getImage());
+            pres_iv.SetImageResource(subArray[index].getImage());
             // end update the image
         }
 
