@@ -2766,6 +2766,9 @@ namespace Explorer
 			// aapt resource value: 0x7f070050
 			public const int textSpacerNoButtons = 2131165264;
 			
+			// aapt resource value: 0x7f0700ab
+			public const int textView1 = 2131165355;
+			
 			// aapt resource value: 0x7f07009d
 			public const int time = 2131165341;
 			
@@ -3046,16 +3049,19 @@ namespace Explorer
 			public const int Quiz_Layout = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_item_material = 2130903095;
+			public const int QuizScore = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int select_dialog_multichoice_material = 2130903096;
+			public const int select_dialog_item_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int select_dialog_singlechoice_material = 2130903097;
+			public const int select_dialog_multichoice_material = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int support_simple_spinner_dropdown_item = 2130903098;
+			public const int select_dialog_singlechoice_material = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int support_simple_spinner_dropdown_item = 2130903099;
 			
 			static Layout()
 			{

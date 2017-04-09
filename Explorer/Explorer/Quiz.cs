@@ -37,7 +37,7 @@ namespace Explorer
         private static RadioButton c_rb;
 
 
-       
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -62,7 +62,7 @@ namespace Explorer
 
             index = 0;
             score = 0;
-            
+
             Questions q0 = new Questions(Resource.Drawable.aut, "What time of the year do leaf's change colour?", "Spring", "Winter", "Autumn", "C");
             Questions q1 = new Questions(Resource.Drawable.butterfly, "What insect is this?", "Lady Bird", "Butterfly", "Bee", "B");
             Questions q2 = new Questions(Resource.Drawable.spider, "How many legs does a spider have?", "8", "5", "10", "A");
@@ -74,7 +74,7 @@ namespace Explorer
             Questions q8 = new Questions(Resource.Drawable.snail, "How long can a snail sleep for?", "3 Years", "3 Weeks", "3 Days", "A");
             Questions q9 = new Questions(Resource.Drawable.bee, "What insect is this?", "Wasp", "Bee", "Hornet", "B");
             Questions q10 = new Questions(Resource.Drawable.beehive, "Who's home is this?", "Ladybird", "Fruit Fly", "Bee", "C");
-            Questions q11 = new Questions(Resource.Drawable.tree, "Which does not come from a tree?", "Leafs", "Fruit","Flowers", "C");
+            Questions q11 = new Questions(Resource.Drawable.tree, "Which does not come from a tree?", "Leafs", "Fruit", "Flowers", "C");
             Questions q12 = new Questions(Resource.Drawable.ladybird, "What is this?", "Ladybird", "Beatle", "Bee", "A");
             Questions q13 = new Questions(Resource.Drawable.spiderr, "Is a spider an insect?", "Yes", "No", "Some species are", "B");
             Questions q14 = new Questions(Resource.Drawable.tree, "How old is the oldest tree?", "50 years old", "5,000 years old", "500 years old", "B");
@@ -110,18 +110,23 @@ namespace Explorer
 
             subArray = new List<Questions>(q).GetRange(0, 10).ToArray();
             Random ran = new Random();
-                r = ran.Next(subArray.Length);
-          
+           
 
-            quest_tv1.Text = (subArray[r].getQuestionBody());
+                r = ran.Next(subArray.Length);
+
+
+                quest_tv1.Text = (subArray[r].getQuestionBody());
                 a_rb.Text = (subArray[r].getChoiceA());
                 b_rb.Text = (subArray[r].getChoiceB());
                 c_rb.Text = (subArray[r].getChoiceC());
                 pres_iv.SetImageResource(subArray[r].getImage());
                 index = r;
-
             
- 
+
+           
+
+          
+
             submit_b.Click += delegate
             {
                 var rg = FindViewById<RadioGroup>(Resource.Id.radioGroup);
@@ -138,18 +143,29 @@ namespace Explorer
                     if (!subArray[index].isCreditGiven())
 
                         setScore(getScore() + 1);
-                    advance();
+                  
+                        advance();
+
+                    if (subArray[index].isCreditGiven())
+                        StartActivity(typeof(QuizScore));                    
+                   
                 }
                 else
                 {
                     Toast.MakeText(this, "Wrong Answer", ToastLength.Short).Show();
                 }
-                
-            };
-    }
-    
 
-        
+
+
+
+              
+
+
+            };
+        }
+
+
+
 
 
         public int getScore()
@@ -165,32 +181,35 @@ namespace Explorer
 
         public Boolean isCorrect(String choice)
         {
-            
+
             return choice.Equals(q[index].getAnswer());
         }
 
         private void advance()
         {
-          
-            // user got the current question correct if this method is called
-            subArray[index].giveCredit();
-            // advance index to point to next question
-            index = (index + 1) % subArray.Length;
-
-            //update the choices
-            a_rb.Text = (subArray[index].getChoiceA());
-            b_rb.Text = (subArray[index].getChoiceB());
-            c_rb.Text = (subArray[index].getChoiceC());
-            //update the question body
-            quest_tv1.Text = (subArray[index].getQuestionBody());
-            //update the image
-            pres_iv.SetImageResource(subArray[index].getImage());
-            // end update the image
-        }
+            
+                // user got the current question correct if this method is called
+                subArray[index].giveCredit();
+                // advance index to point to next question
+                index = (index + 1) % subArray.Length;
 
 
+                //update the choices
+                a_rb.Text = (subArray[index].getChoiceA());
+                b_rb.Text = (subArray[index].getChoiceB());
+                c_rb.Text = (subArray[index].getChoiceC());
+                //update the question body
+                quest_tv1.Text = (subArray[index].getQuestionBody());
+                //update the image
+                pres_iv.SetImageResource(subArray[index].getImage());
+                // end update the image
+
+            }
+           
 
 
+
+        } 
     }
-}
         
+    

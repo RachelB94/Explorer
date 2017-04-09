@@ -188,6 +188,7 @@
     <Compile Include="PuzzleProcess.cs" />
     <Compile Include="Questions.cs" />
     <Compile Include="Quiz.cs" />
+    <Compile Include="QuizScore.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Splash.cs" />
@@ -207,6 +208,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Quiz_Layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\QuizScore.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
