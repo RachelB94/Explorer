@@ -15,10 +15,18 @@ namespace Explorer
     [Activity(Label = "QuizScore")]
     public class QuizScore : Activity
     {
+       
+        Quiz q = new Quiz();
         protected override void OnCreate(Bundle savedInstanceState)
         {
+          
+            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.QuizScore);
+            
+            TextView tv = FindViewById<TextView>(Resource.Id.score);
+            string score = Intent.GetStringExtra("Score");
+            tv.Text = score;
         }
     }
 }

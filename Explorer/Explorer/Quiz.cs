@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using System.Collections.Generic;
 using Android.Database;
+using Android.Content;
 
 namespace Explorer
 {
@@ -21,7 +22,9 @@ namespace Explorer
         private Questions[] subArray;
 
         // current score
-        private int score;
+        int score;
+
+        
         // keeps track of where we are in the quiz
         private int index;
 
@@ -44,13 +47,18 @@ namespace Explorer
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Quiz_Layout);
 
+            
+
+
             initialze();
+            
 
 
 
         }
         private void initialze()
         {
+            
             int r;
             pres_iv = (ImageView)FindViewById((Resource.Id.quizImage));
             quest_tv1 = (TextView)FindViewById(Resource.Id.question);
@@ -59,6 +67,8 @@ namespace Explorer
             a_rb = (RadioButton)FindViewById(Resource.Id.a);
             b_rb = (RadioButton)FindViewById(Resource.Id.b);
             c_rb = (RadioButton)FindViewById(Resource.Id.c);
+
+          
 
             index = 0;
             score = 0;
@@ -123,9 +133,10 @@ namespace Explorer
                 index = r;
             
 
-           
 
-          
+
+
+
 
             submit_b.Click += delegate
             {
@@ -138,18 +149,34 @@ namespace Explorer
                 if (rb == b_rb) answers = "B";
                 if (rb == c_rb) answers = "C";
 
+            
+
                 if (isCorrect(answers))
                 {
+                    
+
                     if (!subArray[index].isCreditGiven())
+                    {
 
                         setScore(getScore() + 1);
-                  
                         advance();
+                    }
+                    else
+                    {
+                        
 
-                    if (subArray[index].isCreditGiven())
-                        StartActivity(typeof(QuizScore));                    
-                   
+                        if (subArray[index].isCreditGiven())
+                        { 
+                          
+                            Intent intent  = new Intent(this, typeof(QuizScore));
+                            intent.PutExtra("Score", getScore().ToString());
+                            StartActivity(intent);
+
+                      
+
+                        }
                 }
+                    }
                 else
                 {
                     Toast.MakeText(this, "Wrong Answer", ToastLength.Short).Show();
@@ -157,8 +184,6 @@ namespace Explorer
 
 
 
-
-              
 
 
             };
@@ -181,8 +206,9 @@ namespace Explorer
 
         public Boolean isCorrect(String choice)
         {
-
-            return choice.Equals(q[index].getAnswer());
+               
+            return choice.Equals(subArray[index].getAnswer());
+            
         }
 
         private void advance()
@@ -190,6 +216,7 @@ namespace Explorer
             
                 // user got the current question correct if this method is called
                 subArray[index].giveCredit();
+               
                 // advance index to point to next question
                 index = (index + 1) % subArray.Length;
 
@@ -202,14 +229,18 @@ namespace Explorer
                 quest_tv1.Text = (subArray[index].getQuestionBody());
                 //update the image
                 pres_iv.SetImageResource(subArray[index].getImage());
-                // end update the image
+            // end update the image
 
-            }
            
 
+           
+            }
+
+       
 
 
-        } 
+
+    } 
     }
         
     

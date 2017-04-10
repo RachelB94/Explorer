@@ -2658,6 +2658,9 @@ namespace Explorer
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;
 			
+			// aapt resource value: 0x7f0700ab
+			public const int score = 2131165355;
+			
 			// aapt resource value: 0x7f070017
 			public const int screen = 2131165207;
 			
@@ -2765,9 +2768,6 @@ namespace Explorer
 			
 			// aapt resource value: 0x7f070050
 			public const int textSpacerNoButtons = 2131165264;
-			
-			// aapt resource value: 0x7f0700ab
-			public const int textView1 = 2131165355;
 			
 			// aapt resource value: 0x7f07009d
 			public const int time = 2131165341;
