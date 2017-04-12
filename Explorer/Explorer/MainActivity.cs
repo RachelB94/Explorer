@@ -7,7 +7,7 @@ using Android.Support.V4.App;
 
 namespace Explorer
 {
-    [Activity(Label = "Explorer", Icon = "@drawable/icon")]
+    [Activity(Label = "Explorer", Icon = "@drawable/icon", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
         // private EditText name, email;

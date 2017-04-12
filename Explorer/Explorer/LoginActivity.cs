@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Explorer
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "LoginActivity", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class LoginActivity : Activity
     {
 

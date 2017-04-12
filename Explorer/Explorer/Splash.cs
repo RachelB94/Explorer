@@ -13,7 +13,7 @@ using Java.Lang;
 
 namespace Explorer
 {
-    [Activity(Label = "Explorer", MainLauncher=true,Theme="@style/Theme.Splash",NoHistory=true,Icon="@drawable/icon")]
+    [Activity(Label = "Explorer", MainLauncher=true,Theme="@style/Theme.Splash",NoHistory=true,Icon="@drawable/icon", ScreenOrientation =Android.Content.PM.ScreenOrientation.Portrait)]
     public class Splash : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

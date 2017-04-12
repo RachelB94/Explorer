@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Explorer
 {
-    [Activity(Label = "QuizScore")]
+    [Activity(Label = "QuizScore", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class QuizScore : Activity
     {
        

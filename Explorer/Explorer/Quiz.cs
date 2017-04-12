@@ -11,7 +11,7 @@ using Android.Content;
 
 namespace Explorer
 {
-    [Activity(Label = "Quiz")]
+    [Activity(Label = "Quiz", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class Quiz : Activity
     {
 

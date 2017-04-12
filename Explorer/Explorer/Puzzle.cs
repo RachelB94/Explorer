@@ -152,7 +152,7 @@ namespace Explorer
 
 
 
-    [Activity(Label = "Puzzle")]
+    [Activity(Label = "Puzzle", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class Puzzle : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         

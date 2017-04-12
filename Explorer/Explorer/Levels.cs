@@ -13,7 +13,7 @@ using Puzzles;
 
 namespace Explorer
 {
-    [Activity(Label = "Levels")]
+    [Activity(Label = "Levels", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class Levels : Activity
     {
 

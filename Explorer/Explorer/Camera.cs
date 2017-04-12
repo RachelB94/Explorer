@@ -15,7 +15,7 @@ using Android.Support.V4.App;
 
 namespace Explorer
 {
-    [Activity(Label = "Camera")]
+    [Activity(Label = "Camera", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class Camera : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
