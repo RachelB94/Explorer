@@ -6,8 +6,37 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
+        android:text="Your Score is"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/textView1" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/score" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/medal" />
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:text="Re-take"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/retake" />
+        <Button
+            android:text="Cancel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel" />
+    </LinearLayout>
 </LinearLayout>
