@@ -16,14 +16,18 @@ using Xamarin.Forms;
 using Android.Speech.Tts;
 using ExplorerVision;
 
+[assembly: Dependency(typeof(ITextToSpeech))]
 namespace CognitiveServices.ViewModels
 {
+    
+
     public class ComputerVisionViewModel : INotifyPropertyChanged
     {
         
         public TextToSpeech speakText { get; set; }
         
         private ImageResult _imageResult;
+
         private OcrResult _imageResultOcr;
         private List<EmotionResult> _imageResultEmotions;
         /// <summary>
@@ -43,17 +47,19 @@ namespace CognitiveServices.ViewModels
        
 
 
-
+       
         public ImageResult ImageResult
         {
             
-            get { return _imageResult; }
+            get
+            {   
+                return _imageResult; }
             set
             {
                 
                 _imageResult = value;
                 OnPropertyChanged();
-               
+                
 
             }
 
@@ -63,7 +69,12 @@ namespace CognitiveServices.ViewModels
 
         public OcrResult OcrResult
         {
-            get { return _imageResultOcr; }
+            get
+            {
+               
+                return _imageResultOcr;
+              
+            }
             set
             {
                 _imageResultOcr = value;
@@ -75,6 +86,7 @@ namespace CognitiveServices.ViewModels
         {
             get
             {
+               
                 return _imageResultEmotions;
             }
             set
@@ -154,6 +166,8 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = string.Empty;
                         ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
                       
+
+
                     }
                     catch (Exception exception)
                     {
@@ -210,7 +224,15 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = string.Empty;
 
                         ImageResult = await _computerVisionService.AnalyseImageUrlAsync(_imageUrl);
+
+                        var toSpeak = ImageResult.ToString();
+                        DependencyService.Get<ITextToSpeech>().Speak(toSpeak);
                     }
+
+                   
+
+
+                    
                     catch (Exception exception)
                     {
                         ErrorMessage = exception.Message;
@@ -238,6 +260,7 @@ namespace CognitiveServices.ViewModels
                         ErrorMessage = string.Empty;
 
                         ImageResult = await _computerVisionService.AnalyseImageStreamAsync(_imageStream);
+                      
 
                     }
                     catch (Exception exception)

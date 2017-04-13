@@ -5,23 +5,26 @@ using Plugin.Media;
 using Android.Views;
 using Android.Speech.Tts;
 using ExplorerVision;
+using System;
+
 
 namespace CognitiveServices.Views
 {
+
     public class ComputerVisionPage : ContentPage
     {
-
+        Label captionsLabel;
         public TextToSpeech SpeechText { get; set; }
         public ComputerVisionPage()
         {
-           
+
             BindingContext = new ComputerVisionViewModel();
 
             var image = new Image
             {
                 HeightRequest = 400,
-                WidthRequest= 320
-                
+                WidthRequest = 320
+
             };
 
             image.SetBinding(Image.SourceProperty, "ImageUrl");
@@ -48,8 +51,8 @@ namespace CognitiveServices.Views
             //var imageUrlEntry = new Entry();
             //imageUrlEntry.SetBinding(Entry.TextProperty, "ImageUrl");
 
-            
-               
+
+
             //var analyseImageUrlButton = new Button
             //{
             //    Text = "Analyse Image Url",
@@ -90,12 +93,13 @@ namespace CognitiveServices.Views
             };
             errorMessageLabel.SetBinding(Label.TextProperty, "ErrorMessage");
 
-            var captionsLabel = new Label
+            captionsLabel = new Label
             {
                 TextColor = Color.Black,
                 FontSize = 20,
-                
+
             };
+
             captionsLabel.SetBinding(Label.TextProperty, new Binding(
                 "ImageResult.Description.Captions[0].Text",
                 BindingMode.Default,
@@ -103,7 +107,17 @@ namespace CognitiveServices.Views
                 null
                ));
 
- 
+            var SpeakButton = new Button
+            {
+                Text = "Speak",
+                TextColor = Color.White,
+                BackgroundColor = Color.Blue,
+                FontSize = 24
+            };
+            SpeakButton.Clicked += SpeakButton_Clicked;
+        
+
+           
 
             //var isAdultContentLabel = new Label
             //{
@@ -160,22 +174,22 @@ namespace CognitiveServices.Views
             //        TextColor = Color.Gray,
             //        FontSize = 20
             //    };
-                //genderLabel.SetBinding(Label.TextProperty, new Binding(
-                //    "Gender",
-                //    BindingMode.Default,
-                //    null,
-                //    null,
-                //    "Gender: {0:F0}"));
+            //genderLabel.SetBinding(Label.TextProperty, new Binding(
+            //    "Gender",
+            //    BindingMode.Default,
+            //    null,
+            //    null,
+            //    "Gender: {0:F0}"));
 
-                //var faceStackLayout = new StackLayout
-                //{
-                //    Padding = 5,
-                //    Children =
-                //    {
-                //        ageLabel,
-                //        genderLabel
-                //    }
-                //};
+            //var faceStackLayout = new StackLayout
+            //{
+            //    Padding = 5,
+            //    Children =
+            //    {
+            //        ageLabel,
+            //        genderLabel
+            //    }
+            //};
 
             //    return new ViewCell
             //    {
@@ -213,6 +227,7 @@ namespace CognitiveServices.Views
                     isBusyActivityIndicator,
                     errorMessageLabel,
                     captionsLabel,
+                    SpeakButton,
                     //isAdultContentLabel,
                     //isRacyContentLabel,
                     //tagsLabel,
@@ -224,6 +239,11 @@ namespace CognitiveServices.Views
             {
                 Content = stackLayout
             };
+        }
+
+        private void SpeakButton_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<ITextToSpeech>().Speak(captionsLabel.Text.ToString());
         }
     }
 }

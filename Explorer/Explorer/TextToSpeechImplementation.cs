@@ -13,6 +13,9 @@ using ExplorerVision;
 using Android.Speech.Tts;
 using CognitiveServices.Models.Image;
 using Xamarin.Forms;
+using Explorer;
+
+[assembly: Dependency(typeof(TextToSpeechImplementation))]
 
 namespace Explorer
 {
@@ -35,6 +38,7 @@ namespace Explorer
             {
                 var p = new Dictionary<string, string>();
                 speaker.Speak(toSpeak, QueueMode.Flush, p);
+                System.Diagnostics.Debug.WriteLine("spoke " + toSpeak);
             }
         }
 
@@ -43,15 +47,17 @@ namespace Explorer
         {
             if (status.Equals(OperationResult.Success))
             {
+                System.Diagnostics.Debug.WriteLine("speaker init");
                 var p = new Dictionary<string, string>();
                 speaker.Speak(toSpeak, QueueMode.Flush, p);
             }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("was quiet");
+            }
         }
 
-        public void Speak(ImageResult imageResult)
-        {
-            DependencyService.Get<ITextToSpeech>().Speak(imageResult.ToString());
-        }
+       
         #endregion
     }
 }

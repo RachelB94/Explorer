@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using ExplorerVision;
 using Android.Speech.Tts;
 
+[assembly: Xamarin.Forms.Dependency(typeof(TextToSpeech))]
 namespace CognitiveServices.Services
 {
     /// <summary>
@@ -78,8 +79,7 @@ namespace CognitiveServices.Services
 
                 }
 
-               
-
+                
                 throw new Exception(json);
             }
             catch (Exception exception)
@@ -87,7 +87,7 @@ namespace CognitiveServices.Services
                 throw exception;
             }
 
-           
+            
 
             return null;
         }
@@ -120,6 +120,8 @@ namespace CognitiveServices.Services
 
                     return imageResult;
                 }
+
+
 
                 throw new Exception(json);
             }
