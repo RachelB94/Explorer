@@ -15,20 +15,20 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/Camera"
-        android:layout_x="30px"
-        android:layout_y="350px" />
+        android:layout_x="10px"
+        android:layout_y="160px" />
     <Button
         android:background="@drawable/puzzle"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/Puzzle"
         android:layout_x="190px"
-        android:layout_y="350px" />
+        android:layout_y="170px" />
     <Button
         android:background="@drawable/quiz"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/Quiz"
-        android:layout_x="30px"
-        android:layout_y="500px" />
+        android:layout_x="10px"
+        android:layout_y="320px" />
 </AbsoluteLayout>

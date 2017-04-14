@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Xamarin.Auth;
 using Newtonsoft.Json.Linq;
+using Firebase.Xamarin.Auth;
+using Firebase;
 
 
 namespace Explorer
@@ -30,13 +32,13 @@ namespace Explorer
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
-         
+
             //this.SetContentView(Resource.Layout.Login);
 
             this.progressDialog = new ProgressDialog(this);
             this.progressDialog.SetMessage("loading...");
 
-            
+        
 
             // This will show all connections enabled in Auth0, and let the user choose the identity provider
             try
@@ -51,7 +53,7 @@ namespace Explorer
             }
             catch (Exception e)
             {
-                this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
+               this.FindViewById<TextView>(Resource.Id.txtResult).Text = e.Message;
             }
         }
         
@@ -179,7 +181,7 @@ namespace Explorer
 
 
 
-        private void ShowResult(Auth0User user)
+       private void ShowResult(Auth0User user)
         {
             var id = user.IdToken;
             var profile = user.Profile.ToString();

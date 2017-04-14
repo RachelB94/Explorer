@@ -16,6 +16,7 @@ namespace Explorer
     class Questions
     {
         private int imageReference;
+        private String url;
         private String questionBody;
 
         private String choiceA;
@@ -77,6 +78,11 @@ namespace Explorer
             this.correctChoice = correctChoice;
             // question has not been answered correctly yet
             this.creditGiven = false;
+        }
+
+        public String getUrl()
+        {
+            return url;
         }
 
     }
