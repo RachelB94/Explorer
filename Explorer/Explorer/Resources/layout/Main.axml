@@ -31,4 +31,12 @@
         android:id="@+id/Quiz"
         android:layout_x="10px"
         android:layout_y="320px" />
+   <Button
+        android:background="@drawable/gallery"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/Gallery"
+        android:layout_x="190px"
+        android:layout_y="320px" />
+
 </AbsoluteLayout>

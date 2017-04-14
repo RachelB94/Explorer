@@ -43,6 +43,11 @@ namespace Explorer
                 StartActivity(typeof(Quiz));
             };
 
+            Button buttonGallery = FindViewById<Button>(Resource.Id.Gallery);
+            buttonGallery.Click += delegate
+            {
+                StartActivity(typeof(GalleryActivity));
+            };
 
 
         }
