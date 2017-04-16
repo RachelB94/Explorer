@@ -20,10 +20,21 @@ namespace CognitiveServices.Views
 
             BindingContext = new ComputerVisionViewModel();
 
+            var textView = new Label
+            {
+                Text = " Whats in that picture ?",
+                FontSize = 25,
+                FontFamily = "sans - serif - condensed",
+                TextColor = Color.Black,
+                Margin = 10
+            };
+
             var image = new Image
             {
+               
                 HeightRequest = 400,
-                WidthRequest = 320
+                WidthRequest = 320,
+                Margin = 0
 
             };
 
@@ -33,8 +44,9 @@ namespace CognitiveServices.Views
             {
                 Text = "Take Photo",
                 TextColor = Color.White,
-                BackgroundColor = Color.Blue,
-                FontSize = 24
+                BackgroundColor = Color.Green,
+                FontSize = 24,
+                Margin = 20
             };
             takePhotoButton.SetBinding(Button.CommandProperty, "TakePhotoCommand");
 
@@ -89,7 +101,8 @@ namespace CognitiveServices.Views
             var errorMessageLabel = new Label
             {
                 TextColor = Color.Red,
-                FontSize = 20
+                FontSize = 20, 
+               
             };
             errorMessageLabel.SetBinding(Label.TextProperty, "ErrorMessage");
 
@@ -97,6 +110,8 @@ namespace CognitiveServices.Views
             {
                 TextColor = Color.Black,
                 FontSize = 20,
+                Margin = 20
+             
 
             };
 
@@ -106,18 +121,24 @@ namespace CognitiveServices.Views
                 null,
                 null
                ));
+   
+
+           
 
             var SpeakButton = new Button
             {
                 Text = "Speak",
                 TextColor = Color.White,
-                BackgroundColor = Color.Blue,
-                FontSize = 24
+                BackgroundColor = Color.Green,
+                FontSize = 24,
+                Margin = 20,
+                IsVisible = false
+              
             };
             SpeakButton.Clicked += SpeakButton_Clicked;
-        
 
-           
+          
+       
 
             //var isAdultContentLabel = new Label
             //{
@@ -214,12 +235,14 @@ namespace CognitiveServices.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                         {
-                            image
+                            textView,
+                           
                            
                             //pickPhotoButton
                         }
                     },
 
+                     image,
                      takePhotoButton,
                     //imageUrlEntry,
                     //analyseImageUrlButton,
