@@ -20,21 +20,12 @@ namespace CognitiveServices.Views
 
             BindingContext = new ComputerVisionViewModel();
 
-            var textView = new Label
-            {
-                Text = " Whats in that picture ?",
-                FontSize = 25,
-                FontFamily = "sans - serif - condensed",
-                TextColor = Color.Black,
-                Margin = 10
-            };
-
             var image = new Image
             {
                
                 HeightRequest = 400,
                 WidthRequest = 320,
-                Margin = 0
+              
 
             };
 
@@ -46,7 +37,8 @@ namespace CognitiveServices.Views
                 TextColor = Color.White,
                 BackgroundColor = Color.Green,
                 FontSize = 24,
-                Margin = 20
+              
+              
             };
             takePhotoButton.SetBinding(Button.CommandProperty, "TakePhotoCommand");
 
@@ -127,12 +119,12 @@ namespace CognitiveServices.Views
 
             var SpeakButton = new Button
             {
-                Text = "Speak",
+                Text = "Listen",
                 TextColor = Color.White,
                 BackgroundColor = Color.Green,
                 FontSize = 24,
-                Margin = 20,
-                IsVisible = false
+                
+               
               
             };
             SpeakButton.Clicked += SpeakButton_Clicked;
@@ -233,24 +225,40 @@ namespace CognitiveServices.Views
                     new StackLayout
                     {
                         Orientation = StackOrientation.Horizontal,
+                 
                         Children =
                         {
-                            textView,
+
+                           image,
+                           
                            
                            
                             //pickPhotoButton
                         }
                     },
 
-                     image,
-                     takePhotoButton,
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+
+                        Children =
+                        {
+                              takePhotoButton,
+                                  SpeakButton,
+
+                        }
+                    },
+
+
+                  
                     //imageUrlEntry,
                     //analyseImageUrlButton,
                     //analyseImageStreamButton,
                     isBusyActivityIndicator,
                     errorMessageLabel,
                     captionsLabel,
-                    SpeakButton,
+                
+                
                     //isAdultContentLabel,
                     //isRacyContentLabel,
                     //tagsLabel,
