@@ -16,7 +16,7 @@ using Xamarin.Forms;
 using Android.Speech.Tts;
 using ExplorerVision;
 
-[assembly: Dependency(typeof(ITextToSpeech))]
+
 namespace CognitiveServices.ViewModels
 {
     

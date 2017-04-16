@@ -1,19 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using ExplorerVision;
 using Android.Speech.Tts;
-using CognitiveServices.Models.Image;
 using Xamarin.Forms;
 using Explorer;
+using ExplorerVision;
 
 [assembly: Dependency(typeof(TextToSpeechImplementation))]
 

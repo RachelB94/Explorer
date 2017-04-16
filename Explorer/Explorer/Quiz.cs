@@ -47,15 +47,12 @@ namespace Explorer
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Quiz_Layout);
 
-            
-
 
             initialze();
-            
-
 
 
         }
+
         private void initialze()
         {
             
